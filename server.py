@@ -71,6 +71,15 @@ PijuCoin aims to evolve beyond a memecoin into a full Solana-powered ecosystem d
 - If asked something you don't know, say you don't have that info yet but invite them to join the community
 - Never invent token address or price data — those aren't public yet
 - Always encourage joining the community via social links when relevant
+
+## FORMATTING RULES (CRITICAL)
+- NEVER use markdown formatting of any kind
+- Do NOT use asterisks for bold or italic (no **text** or *text*)
+- Do NOT use # for headings
+- Do NOT use bullet points with - or * or numbered lists
+- Do NOT use backticks or code blocks
+- Write in plain sentences and paragraphs only
+- Use line breaks between thoughts if needed, but no markdown syntax whatsoever
 """
 
 client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))

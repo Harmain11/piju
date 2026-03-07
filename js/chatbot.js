@@ -402,11 +402,12 @@
   closeBtn.addEventListener("click", toggleChat);
 
   function addBotMessage(text) {
+    const clean = stripMarkdown(text);
     const msg = document.createElement("div");
     msg.className = "piju-msg bot";
     msg.innerHTML = `
       <div class="piju-msg-avatar"><img src="/assets/images/branding/piju-bot-avatar.png" alt="PIJU" /></div>
-      <div class="piju-msg-bubble">${escapeHtml(text)}</div>
+      <div class="piju-msg-bubble">${escapeHtml(clean)}</div>
     `;
     messagesContainer.appendChild(msg);
     scrollToBottom();
@@ -446,6 +447,27 @@
     const div = document.createElement("div");
     div.appendChild(document.createTextNode(text));
     return div.innerHTML;
+  }
+
+  function stripMarkdown(text) {
+    return text
+      .replace(/#{1,6}\s+/g, "")
+      .replace(/\*\*\*(.+?)\*\*\*/g, "$1")
+      .replace(/\*\*(.+?)\*\*/g, "$1")
+      .replace(/\*(.+?)\*/g, "$1")
+      .replace(/___(.+?)___/g, "$1")
+      .replace(/__(.+?)__/g, "$1")
+      .replace(/_(.+?)_/g, "$1")
+      .replace(/~~(.+?)~~/g, "$1")
+      .replace(/`{3}[\s\S]*?`{3}/g, "")
+      .replace(/`([^`]+)`/g, "$1")
+      .replace(/^\s*[-*+]\s+/gm, "")
+      .replace(/^\s*\d+\.\s+/gm, "")
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+      .replace(/^>\s+/gm, "")
+      .replace(/---+/g, "")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
   }
 
   async function sendMessage(text) {
