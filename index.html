@@ -1,0 +1,1713 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>PIJU — Coin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/sections/gallery/image2.png" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { orbitron: ["Orbitron", "sans-serif"] },
+          colors: {
+            blueNeon: "#3B82F6",
+            dark: "#050B14",
+            panel: "rgba(0,0,0,.6)",
+          },
+          boxShadow: {
+            blueGlow: "0 0 32px rgba(59,130,246,.7)",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-dark text-white font-orbitron overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 w-full z-[999] bg-white/10 border-b border-white/20 backdrop-blur-md">
+    <div class="h-[74px] w-full px-4 sm:px-6 lg:px-10 flex items-center">
+
+      <!-- TOP NAVBAR LOGO -->
+      <div class="flex items-center gap-2">
+
+        <!-- IMAGE PIJU -->
+        <img src="/assets/images/branding/piju.png" alt="$YETI" class="h-20 object-contain" />
+      </div>
+
+      <!-- ACTION CORNER -->
+      <div class="ml-auto flex items-center gap-3 sm:gap-3">
+        <a href="#chart"
+          class="relative inline-block px-5 py-2 text-xs sm:text-sm tracking-widest text-white/70 group transition">
+
+          <!-- CONTAINER TILTED + BORDER -->
+          <span
+            class="absolute inset-0 -skew-x-12 bg-white/10 border border-white/30 group-hover:bg-yellow-400/20 group-hover:border-yellow-400 transition"></span>
+
+          <!-- TEXT -->
+          <span class="relative z-10 group-hover:text-yellow-400 transition"> CHART </span>
+        </a>
+
+        <button class="relative px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold text-black hover:scale-105 transition">
+
+          <!-- CONTAINER TILTED -->
+          <span class="absolute inset-0 -skew-x-12 bg-yellow-500 shadow-yellow-500/50"></span>
+
+          <!-- TEXT -->
+          <span class="relative z-10"> WALLET </span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <section class="relative px-3 sm:px-6 lg:px-10
+             pt-24 sm:pt-20
+             pb-6 sm:pb-10
+             lg:min-h-[100dvh]
+             isolate">
+
+    <!-- VIDEO -->
+    <video autoplay muted loop playsinline preload="auto"
+      class="absolute inset-0 w-full h-full object-cover opacity-40">
+      <source src="/assets/videos/Header.mp4" type="video/mp4" />
+    </video>
+
+    <!-- OVERLAY -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/20"></div>
+
+    <!-- GLOW -->
+    <div class="relative z-20
+                flex flex-col items-center text-center
+                lg:justify-center
+                lg:min-h-[90vh]">
+      <br>
+      <br>
+
+      <!-- CONTENT -->
+      <div
+        class="relative z-20 w-full max-w-6xl text-center flex flex-col items-center -translate-y-14 sm:-translate-y-16 lg:-translate-y-20">
+
+        <!-- FLOATING IMAGE -->
+        <div class="relative mb-[-7rem] sm:mb-[-8rem] z-30 wind-wrapper opacity-0 translate-y-8">
+          <img src="/assets/images/branding/GoPiju.png"
+            class="w-[300px] sm:w-80 lg:w-[420px] xl:w-[520px] animate-pulse-coin scale-105 drop-shadow-[0_0_70px_rgba(234,179,8,0.6)] select-none pointer-events-none" />
+        </div>
+
+        <!-- LOGO -->
+        <div
+          class="relative w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] lg:w-[420px] lg:h-[420px] xl:w-[520px] xl:h-[520px] rounded-full border-[4px] border-yellow-400/80 bg-black/40 backdrop-blur-md shadow-[0_0_80px_rgba(234,179,8,0.35)]">
+
+          <!-- COMING SOON -->
+          <div class="absolute top-6 sm:top-8 lg:top-10 left-1/2 -translate-x-1/2 z-30 text-center scan-effect">
+            <span
+              class="inline-block px-4 sm:px-6 lg:px-7 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base font-bold tracking-widest text-yellow-400 animate-pulse">
+              COMING SOON !!!
+            </span>
+          </div>
+
+          <!-- LOGO IMAGE -->
+          <img src="/assets/images/hero/headers.png"
+            class="absolute inset-0 w-full h-full object-cover rounded-full opacity-95 z-10" />
+        </div>
+
+        <!-- DESC -->
+        <div
+          class="-mt-6 sm:-mt-8 max-w-[90%] sm:max-w-lg lg:max-w-3xl px-6 py-6 bg-black/55 backdrop-blur-md border border-white/15">
+          <p
+            class="font-semibold text-yellow-400 text-lg sm:text-lg lg:text-xl tracking-wide drop-shadow-[0_0_15px_rgba(234,179,8,0.6)]">
+            Grow Piju Together
+          </p>
+        </div>
+
+        <!-- CTA ACTIVE -->
+        <!-- <button
+          class="relative w-full sm:w-[220px] py-2.5 sm:py-5 text-sm sm:text-lg font-bold text-black bg-yellow-500 skew-x-[-12deg] opacity-80">
+          <span class="skew-x-[12deg] block text-center">BUY $PIJU</span>
+        </button> -->
+
+        <!-- CTA DISABLED -->
+        <div
+          class="mt-4 flex flex-col sm:flex-row gap-3 w-10/12 sm:w-auto max-w-sm sm:max-w-none mx-auto justify-center">
+
+          <!-- TOMBOL BUY -->
+          <button disabled class="relative w-full sm:w-[220px] py-2.5 sm:py-5
+                   text-sm sm:text-lg font-bold
+                   text-black
+                   skew-x-[-12deg]
+                   cursor-not-allowed
+                   select-none overflow-hidden">
+
+            <!-- BASE KUNING + OPACITY -->
+            <span class="absolute inset-0 bg-yellow-400 opacity-60"></span>
+
+            <!-- STRIPES DIAGONAL -->
+            <span class="absolute inset-0 pointer-events-none" style="
+                    background-image: repeating-linear-gradient(
+                      -45deg,
+                      rgba(0,0,0,0.25) 0px,
+                      rgba(0,0,0,0.25) 10px,
+                      rgba(0,0,0,0.35) 10px,
+                      rgba(0,0,0,0.35) 20px
+                    );
+                  ">
+            </span>
+
+            <!-- TEXT -->
+            <span class="relative skew-x-[12deg] block text-center z-10">
+              BUY $PIJU
+            </span>
+
+          </button>
+
+          <!-- TOKEN ACTIVE -->
+          <!-- <button id="copyBtn"
+            class="relative w-full sm:w-[220px] py-2.5 sm:py-5 text-sm sm:text-lg font-bold text-white bg-black/40 border border-white/20 backdrop-blur-md shadow-[0_0_16px_rgba(255,255,255,0.15)] skew-x-[-12deg] opacity-80">
+            <span id="copyText" class="skew-x-[12deg] flex items-center justify-center gap-2">
+              CA..
+              <img src="/assets/images/icon/copy.png" alt="icon" class="w-4 h-4 sm:w-5 sm:h-5" />
+            </span>
+          </button> -->
+
+          <!-- <script>
+            const copyBtn = document.getElementById('copyBtn');
+            const copyText = document.getElementById('copyText');
+            const originalText = copyText.innerText.trim();
+
+            copyBtn.addEventListener('click', () => {
+              // salin teks
+              navigator.clipboard.writeText(originalText).then(() => {
+                // ubah teks sementara + icon
+                copyText.innerHTML = '<span class="text-yellow-500">Copied!</span> <img src="/assets/images/icons/copy-done.png" alt="icon" class="w-4 h-4 sm:w-5 sm:h-5" />';
+
+                // kembalikan ke teks asli setelah 1.5 detik
+                setTimeout(() => {
+                  copyText.innerHTML = `${originalText} <img src="/assets/images/icons/copy.png" alt="icon" class="w-4 h-4 sm:w-5 sm:h-5" />`;
+                }, 1500);
+              }).catch(err => {
+                console.error('Gagal menyalin teks: ', err);
+              });
+            });
+          </script> -->
+
+          <!-- TOKEN DISABLED -->
+          <button id="copyBtn" disabled class="relative w-full sm:w-[220px] py-2.5 sm:py-5
+                             text-sm sm:text-lg font-bold
+                             text-white bg-black/40
+                             border border-white/20
+                             backdrop-blur-md
+                             shadow-[0_0_16px_rgba(255,255,255,0.15)]
+                             skew-x-[-12deg]
+                             opacity-40
+                             cursor-not-allowed
+                             select-none overflow-hidden">
+
+            <span id="copyText" class="relative skew-x-[12deg] flex items-center justify-center gap-2 z-10">
+              TOKEN LAUNCH SOON
+              <img src="/assets/images/icons/copy.png" alt="icon" class="w-4 h-4 sm:w-5 sm:h-5 opacity-80" />
+            </span>
+
+            <!-- STRIPS DIAGONAL -->
+            <span class="pointer-events-none absolute inset-0" style="
+                    background-image: repeating-linear-gradient(
+                      -45deg,
+                      rgba(255,255,255,0.20) 0px,
+                      rgba(255,255,255,0.20) 9px,
+                      rgba(255,255,255,0.15) 9px,
+                      rgba(255,255,255,0.15) 18px
+                      );
+                      ">
+            </span>
+
+          </button>
+
+        </div>
+
+        <!-- COUNTDOWN SECTION -->
+        <div class="mt-12 w-full text-center">
+          <h2 class="text-sm text-gray-400 tracking-widest mb-6">
+            LAUNCH COUNTDOWN
+          </h2>
+
+          <!-- TIME LAUNCH -->
+          <div class="flex justify-center gap-4 mb-6 flex-wrap">
+
+            <!-- DAYS -->
+            <div class="countdown-box p-2 bg-black/20 rounded-xl inline-block">
+              <div class="bg-black/50 rounded-lg w-16 h-16 flex flex-col items-center justify-center">
+                <span id="days" class="text-yellow-500 font-bold text-xl">0</span>
+                <span class="text-gray-400 text-xs mt-1">DAYS</span>
+              </div>
+            </div>
+
+            <!-- HOURS -->
+            <div class="countdown-box p-2 bg-black/20 rounded-xl inline-block">
+              <div class="bg-black/50 rounded-lg w-16 h-16 flex flex-col items-center justify-center">
+                <span id="hours" class="text-yellow-500 font-bold text-xl">0</span>
+                <span class="text-gray-400 text-xs mt-1">HOURS</span>
+              </div>
+            </div>
+
+            <!-- MINUTES -->
+            <div class="countdown-box p-2 bg-black/20 rounded-xl inline-block">
+              <div class="bg-black/50 rounded-lg w-16 h-16 flex flex-col items-center justify-center">
+                <span id="minutes" class="text-yellow-500 font-bold text-xl">0</span>
+                <span class="text-gray-400 text-xs mt-1">MINS</span>
+              </div>
+            </div>
+
+            <!-- SECONDS -->
+            <div class="countdown-box p-2 bg-black/20 rounded-xl inline-block">
+              <div class="bg-black/50 rounded-lg w-16 h-16 flex flex-col items-center justify-center">
+                <span id="seconds" class="text-yellow-500 font-bold text-xl">0</span>
+                <span class="text-gray-400 text-xs mt-1">SECS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIJU TEXT -->
+          <p id="piju-text"
+            class="text-gray-300 text-sm sm:text-base max-w-lg mx-auto opacity-0 transform translate-y-6 transition-all duration-700">
+            Grow together. Rise together.
+            <span class="text-yellow-500 font-bold">PIJU</span> is here to make
+            history.
+          </p>
+
+        </div>
+
+      </div>
+  </section>
+
+  <!-- AUDIO -->
+  <audio id="bgMusic" preload="auto" playsinline>
+    <source src="https://pijumeme.xyz/assets/audio/sound.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- TICKER -->
+  <section class="bullish-tape-wrapper">
+
+    <div class="bullish-tape tape-neg">
+      <div class="bullish-track">
+        <div class="track">
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+        </div>>
+        <div class="track">
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+        </div>
+        <div class="track">
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+        </div>
+        <div class="track">
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bullish-tape tape-pos">
+      <div class="bullish-track reverse">
+        <div class="track">
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+        </div>
+        <div class="track">
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+        </div>
+        <div class="track">
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+        </div>
+        <div class="track">
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+          <span>$PIJU</span><span>$PIJU</span><span>$PIJU</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BUY PIJU ON -->
+  <section class="py-24 px-4 bg-black text-white">
+    <div class="max-w-6xl mx-auto">
+
+      <!-- TITLE -->
+      <h2
+        class="meet-piju-scan relative text-center text-yellow-400 text-4xl sm:text-5xl font-extrabold tracking-widest mb-4">
+        <span class="absolute inset-0 text-yellow-400 opacity-50 translate-x-0.5 translate-y-0.5">AVAILABLE ON
+        </span>
+        AVAILABLE ON
+      </h2>
+
+      <!-- TEXT -->
+      <p class="text-center text-sm sm:text-base tracking-wide text-gray-300 mb-16 appear-from-bottom">
+        Your gateway to trading <span class="font-semibold text-yellow-400">$PIJU</span>
+      </p>
+
+      <!-- GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 logo-grid">
+
+        <div class="logo-card">
+          <img src="/assets/images/platforms/dexscanner.png" alt="Dexscreener">
+        </div>
+
+        <div class="logo-card">
+          <img src="/assets/images/platforms/dextools.png" alt="Dextools">
+        </div>
+
+        <div class="logo-card">
+          <img src="/assets/images/platforms/jupiter.png" alt="Jupiter">
+        </div>
+
+        <div class="logo-card">
+          <img src="/assets/images/platforms/gate.io.png" alt="Gate.io">
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MERCH DROP SECTION -->
+  <section class="relative text-white overflow-hidden w-full" style="
+           background-image: url('/assets/images/sections/chart/chart1.png');
+           background-size: cover;
+           background-position: center 25%;
+           background-repeat: no-repeat;
+         ">
+
+    <!-- BLACK OVERLAY -->
+    <div class="absolute inset-0 bg-black/80 z-0"></div>
+
+    <!-- BACKGROUND GRID -->
+    <div class="absolute inset-0 opacity-20" style="background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+             linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+             background-size:40px 40px;">
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-20 sm:py-28">
+
+      <!-- TITLE -->
+      <h2
+        class="meet-piju-scan appear-from-top relative text-center text-yellow-400 text-4xl sm:text-5xl font-extrabold tracking-widest mb-4">
+        <span class="absolute inset-0 text-yellow-400 opacity-50 translate-x-0.5 translate-y-0.5">MEET PIJU</span>
+        MEET PIJU
+      </h2>
+
+      <!-- TITLE PARAGRAF -->
+      <p class="text-center text-sm sm:text-base text-white/70 mb-12 appear-from-bottom">
+        While DARKPINO emerged from the shadows with vengeance, PIJU represents<br>
+        something different — the innocent beginning, the playful spirit, and the<br>
+        promise of growth.
+      </p>
+
+      <!-- CARD -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- 1 -->
+        <div class="merch-card">
+          <img src="/assets/images/sections/about/piju-island.jpeg" alt="Ice Grillz Cap">
+          <div class="p-5">
+            <h3 class="merch-name text-yellow-400">Stay Chill</h3>
+            <p class="merch-desc">
+              While the world burns around him, PIJU stays relaxed. Diamond hands aren't just a meme — they're a
+              lifestyle.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="merch-card">
+          <img src="/assets/images/sections/about/piju-cupid.jpeg" alt="Limited Vinyl">
+          <div class="p-5">
+            <h3 class="merch-name text-yellow-400">March 15 Launch</h3>
+            <p class="merch-desc">
+              Launching on March 15, PIJU kicks off the year with strong momentum —
+              spreading value, trust, and gains.
+              Start the journey. Build the future with PIJU.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="merch-card">
+          <img src="/assets/images/sections/about/piju-moon.jpeg" alt="Support Plushie">
+          <div class="p-5">
+            <h3 class="merch-name text-yellow-400">To The Moon</h3>
+            <p class="merch-desc">
+              Following in DARKPINO's footsteps, PIJU aims for the stars. Part of the Dark Pinoverse legacy.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEAM ORIGIN SECTION -->
+      <section class="relative w-full py-12 overflow-hidden">
+
+        <div class="relative z-10 max-w-[1200px] mx-auto px-0">
+          <div
+            class="relative rounded-2xl border border-transparent bg-black px-4 sm:px-6 py-8 sm:py-12 text-center glow-section">
+
+            <!-- SUBTLE INNER GLOW -->
+            <div class="pointer-events-none absolute inset-0 rounded-2xl
+                        shadow-[inset_0_0_60px_rgba(250,204,21,0.04)]"></div>
+
+            <h3 class="text-xl sm:text-2xl font-extrabold uppercase
+                       tracking-[0.35em] text-gray-400 mb-6 appear-from-left">
+              From the <span class="text-yellow-400">Pino</span> & <span class="text-yellow-400">Dark Pino</span> Team
+            </h3>
+
+            <p class="max-w-2xl mx-auto text-gray-400 text-base sm:text-lg
+                      leading-relaxed mb-8 appear-from-left">
+              PIJU is brought to you by the same team behind PINO and DARK PINO.
+              As DARKPINO’s kindergarten brother, PIJU represents the innocent beginning —
+              with the same fighting spirit and
+              <span class="text-yellow-400 font-semibold">3% tax</span>
+              to maximize your gains.
+            </p>
+
+            <a href="https://darkpino.xyz/" class="group inline-flex items-center gap-3 text-yellow-400
+                              font-semibold tracking-wide transition-all duration-300
+                              hover:text-yellow-300 appear-from-left">
+              <span class="relative">
+                Visit DARKPINO
+                <span class="absolute left-0 -bottom-1 w-0 h-px bg-yellow-400
+                             transition-all duration-300 group-hover:w-full"></span>
+              </span>
+              <span class="text-xl transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </a>
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </section>
+
+  <!-- CHAOS X SECTION -->
+  <section class="relative w-full bg-black overflow-hidden">
+
+    <!-- BACKGROUND EFFECT -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-br from-black/30 via-black to-black/20 animate-pulse-slow"></div>
+      <div class="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-black blur-[150px] rounded-full animate-float"></div>
+      <div
+        class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-black blur-[150px] rounded-full animate-float delay-2000">
+      </div>
+    </div>
+
+    <div
+      class="relative z-10 max-w-7xl mx-auto px-6 py-20 sm:py-28 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+      <!-- LEFT: TITLE STACK -->
+      <div class="lg:col-span-7 space-y-8">
+        <h2 id="chaos-title" class="meet-piju-scan relative text-center text-yellow-400
+                   text-2xl sm:text-3xl md:text-4xl lg:text-5xl
+                   font-extrabold tracking-wider sm:tracking-widest
+                   leading-tight sm:leading-snug
+                   max-w-[88vw] mx-auto
+                   opacity-0 -translate-y-12 transition-all duration-700">
+
+          <!-- BACKGROUND GLOW -->
+          <span class="absolute inset-0 text-yellow-400 opacity-50
+                       translate-x-0.5 translate-y-0.5 pointer-events-none z-0">
+            PURE UNADULTERATED CHAOS
+          </span>
+
+          <!-- TEXT FIRST -->
+          PURE UNADULTERATED CHAOS
+        </h2>
+
+      </div>
+
+      <!-- RIGHT: STORY CARD -->
+      <div class="lg:col-span-5 relative appear-from-right">
+        <div
+          class="bg-black/60 backdrop-blur-xl
+                 p-8 space-y-6
+                 shadow-[0_0_18px_rgba(250,204,21,0.16),0_0_40px_rgba(250,204,21,0.12),0_25px_70px_rgba(0,0,0,0.85)]
+                 transition-shadow duration-500
+                 hover:shadow-[0_0_26px_rgba(250,204,21,0.26),0_0_64px_rgba(250,204,21,0.18),0_30px_80px_rgba(0,0,0,0.9)]">
+
+          <!-- HEADER -->
+          <div class="flex items-start justify-between text-xs font-mono text-yellow-400">
+
+            <!-- LEFT: IMAGE + TITLE -->
+            <div class="flex flex-col gap-3">
+              <img src="/assets/images/sections/gallery/image2.png" alt="Piju Icon" class="w-36 h-36 sm:w-40 sm:h-40 lg:w-48 lg:h-48 object-contain
+                          drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]
+                          drop-shadow-[0_0_16px_rgba(250,204,21,0.3)]
+                          drop-shadow-[0_0_24px_rgba(250,204,21,0.2)]
+                          animate-float" />
+
+              <span class="text-xl sm:text-2xl md:text-2xl font-bold tracking-wide">
+                Why So Serious?
+              </span>
+            </div>
+
+            <!-- RIGHT: LOG -->
+            <span class="bg-yellow-400 text-black px-2 py-0.5 self-start tracking-wider">
+              LOG: #001
+            </span>
+
+          </div>
+
+          <!-- CONTENT -->
+          <div class="space-y-4 font-mono text-sm text-gray-300 leading-relaxed">
+            <p>
+              Piju wasn’t born from strategy or planning. He emerged from pure impulse,
+              watching charts move, memes spread, and deciding that order was overrated.
+            </p>
+
+            <p>
+              Now Piju lives on Solana — fast, reckless, and unapologetic.
+              No roadmap promises, no fake stability.
+              Just momentum, noise, and chaos on the charts.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- BOTTOM STATS -->
+      <div class="lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 feature-glow">
+
+        <div class="bg-black/40 p-6 relative glow-card appear-card">
+          <h4 class="text-yellow-400 font-semibold mb-2">SPEED</h4>
+          <p class="text-gray-400 text-sm">Faster than your transactions.</p>
+        </div>
+
+        <div class="bg-black/40 p-6 relative glow-card appear-card">
+          <h4 class="text-yellow-400 font-semibold mb-2">FEES</h4>
+          <p class="text-gray-400 text-sm">Lower than your IQ.</p>
+        </div>
+
+        <div class="bg-black/40 p-6 relative glow-card appear-card">
+          <h4 class="text-yellow-400 font-semibold mb-2">VIBES</h4>
+          <p class="text-gray-400 text-sm">Immaculate & Degenerate.</p>
+        </div>
+
+        <div class="bg-black/40 p-6 relative glow-card appear-card">
+          <h4 class="text-yellow-400 font-semibold mb-2">IQ</h4>
+          <p class="text-gray-400 text-sm">Room temperature.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TOKENOMICS SECTION -->
+  <section id="tokenomics" class="relative py-32 bg-gradient-to-b from-[#0a1224] to-[#050a16] text-center">
+
+    <!-- TITLE -->
+    <h2 id="tokenomics-title"
+      class="meet-piju-scan relative text-center text-yellow-400 text-4xl sm:text-5xl font-extrabold tracking-widest mb-4 opacity-0 translate-y-[-50px] transition-all duration-700">
+      <span class="absolute inset-0 text-yellow-400 opacity-50 translate-x-0.5 translate-y-0.5">TOKENOMICS</span>
+      TOKENOMICS
+    </h2>
+    <br>
+
+    <!-- CARDS -->
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 px-6">
+
+      <div class="bg-black/20 py-10 relative glow-card text-center" id="supply-card">
+        <h3 id="counter-supply" class="text-yellow-400 text-4xl font-bold mb-2 inline-block">
+          0
+        </h3>
+        <p class="text-gray-400 text-sm tracking-widest">TOTAL SUPPLY</p>
+      </div>
+
+      <div class="bg-black/20 py-8 relative glow-card text-center">
+        <h3 class="text-yellow-400 text-4xl font-bold mb-1 h-[3rem] flex items-center justify-center">
+          3%
+        </h3>
+        <p class="text-gray-400 text-sm tracking-widest">BUY / SELL TAX</p>
+      </div>
+
+      <div class="bg-black/20 py-8 relative glow-card text-center">
+        <h3 class="text-yellow-400 text-4xl font-bold mb-1 h-[3rem] flex items-center justify-center">
+          $0K
+        </h3>
+        <p class="text-gray-400 text-sm tracking-widest">LIQUIDITY</p>
+      </div>
+
+    </div>
+
+    <style>
+      /* SUPPLY 1B */
+      #counter-supply {
+        font-weight: 800;
+        font-size: 2.6rem;
+        line-height: 1.1;
+        white-space: nowrap;
+        transition: font-size 0.25s ease;
+      }
+
+      #counter-supply.shrink {
+        font-size: 2.1rem !important;
+      }
+    </style>
+
+    <script>
+      // TOTAL SUPPLY 1 BILLION
+      document.addEventListener("DOMContentLoaded", function () {
+
+        const card = document.getElementById("supply-card");
+        const counter = document.getElementById("counter-supply");
+
+        if (!card || !counter) return;
+
+        const memeSequence = [
+          "1 000", "10 000", "1 000 000",
+          "69 000 000", "420 000 000",
+          "690 000 000", "999 999 999"
+        ];
+
+        let started = false;
+        const FINAL_VALUE = "1 000 000 000";
+
+        function formatSpace(num) {
+          return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+
+        function startCounter() {
+          if (started) return;
+          started = true;
+
+          let chaosIndex = 0;
+
+          function chaosStep() {
+            counter.textContent =
+              memeSequence[Math.floor(Math.random() * memeSequence.length)];
+
+            chaosIndex++;
+
+            if (chaosIndex < 20) {
+              setTimeout(chaosStep, 70);
+            } else {
+              reveal();
+            }
+          }
+
+          chaosStep();
+        }
+
+        function reveal() {
+          let current = 0;
+          const target = 1_000_000_000;
+          const duration = 1200;
+          const startTime = performance.now();
+
+          function animate(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            current = Math.floor(eased * target);
+
+            if (progress < 1) {
+              counter.textContent = formatSpace(current);
+              requestAnimationFrame(animate);
+            } else {
+              finalize();
+            }
+          }
+
+          requestAnimationFrame(animate);
+        }
+
+        function finalize() {
+          counter.textContent = FINAL_VALUE;
+          counter.classList.add("shrink");
+
+          const observer = new MutationObserver(() => {
+            if (counter.textContent !== FINAL_VALUE) {
+              counter.textContent = FINAL_VALUE;
+            }
+          });
+
+          observer.observe(counter, {
+            childList: true,
+            characterData: true,
+            subtree: true
+          });
+        }
+
+        const intersectionObserver = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              startCounter();
+              intersectionObserver.disconnect();
+            }
+          },
+          { threshold: 0.6 }
+        );
+
+        intersectionObserver.observe(card);
+
+      });
+    </script>
+
+    <!-- LP LOCKED -->
+    <div class="max-w-6xl mx-auto px-6 mt-16">
+      <div class="border border-dashed border-white/20 p-8 glow-static
+                  appear-item
+                  opacity-0 translate-y-10
+                  transition-all duration-700 ease-out">
+
+        <div class="flex justify-between text-xs text-gray-400 mb-3">
+          <span>LP LOCKED</span>
+          <span>FOREVER</span>
+        </div>
+
+        <div class="w-full h-4 bg-black/40 overflow-hidden rounded">
+          <div class="h-full w-full bg-gradient-to-r from-yellow-200 via-yellow-500 to-yellow-800"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap" class="relative py-24 bg-black text-white overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- TITLE -->
+      <div class="text-center mb-16 flex flex-col items-center gap-4">
+        <h1 class="meet-piju-scan appear-title relative inline-flex uppercase
+                   text-4xl sm:text-5xl
+                   lg:text-[2.8rem] xl:text-[3.2rem]
+                   tracking-[0.18em] sm:tracking-[0.22em] xl:tracking-widest
+                   font-extrabold text-yellow-400
+                   leading-none
+                   opacity-0 translate-y-[-40px]
+                   transition-all duration-700 ease-out">
+
+          <span class="absolute inset-0
+                       text-yellow-400 opacity-50
+                       translate-x-0.5 translate-y-0.5
+                       pointer-events-none whitespace-nowrap">
+            Roadmap
+          </span>
+
+          <span class="relative whitespace-nowrap">
+            Roadmap
+          </span>
+        </h1>
+
+        <p class="text-gray-400 max-w-2xl mx-auto appear-from-bottom">
+          PijuCoin is built with long-term growth, real mechanics, and ecosystem expansion in mind.
+        </p>
+      </div>
+
+
+      <!-- CAROUSEL WRAPPER -->
+      <div class="roadmap-carousel-wrapper">
+
+        <!-- LEFT BUTTON -->
+        <button class="carousel-btn left" onclick="scrollRoadmap(-1)">‹</button>
+
+        <!-- CAROUSEL -->
+        <div class="roadmap-carousel" id="roadmapCarousel">
+
+          <!-- CARD 1 -->
+          <div class="roadmap-card relative overflow-hidden">
+
+            <!-- background image layer -->
+            <div class="roadmap-bg absolute inset-0 bg-cover bg-center"
+              style="background-image: url('assets/images/sections/gallery/image12.jpeg');">
+            </div>
+
+            <!-- vignette -->
+            <div class="absolute inset-0 pointer-events-none
+                       bg-[radial-gradient(circle_at_center,
+                       rgba(0,0,0,0.8) 0%,
+                       rgba(0,0,0,0.95) 55%,
+                       rgba(0,0,0,1) 100%)]">
+            </div>
+
+            <!-- solid black edge seal -->
+            <div class="absolute inset-0 bg-black/85 pointer-events-none"></div>
+
+            <!-- content -->
+            <div class="relative z-10">
+              <h3 class="text-center font-bold text-yellow-400">
+                <span class="block text-2xl flex justify-center items-center gap-2">
+                  <img src="assets/images/icons/leaf.png" alt="Phase 2" class="w-7 h-7 object-contain">
+                  Phase 1
+                </span>
+                <span class="block text-lg mt-1">Foundation</span>
+              </h3>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Token Concept & Vision
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Smart Contract Development
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Tokenomics & 3% Tax System
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Buy & Burn Mechanism
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Community & Branding Setup
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="roadmap-card relative overflow-hidden">
+
+            <div class="roadmap-bg absolute inset-0 bg-cover bg-center"
+              style="background-image: url('assets/images/sections/gallery/image14.jpeg');">
+            </div>
+
+            <div class="absolute inset-0 pointer-events-none
+                       bg-[radial-gradient(circle_at_center,
+                       rgba(0,0,0,0.8) 0%,
+                       rgba(0,0,0,0.95) 55%,
+                       rgba(0,0,0,1) 100%)]">
+            </div>
+
+            <div class="absolute inset-0 bg-black/85 pointer-events-none"></div>
+
+            <div class="relative z-10">
+              <h3 class="text-center font-bold text-yellow-400">
+                <span class="block text-2xl flex justify-center items-center gap-2">
+                  <img src="assets/images/icons/roket.png" alt="Phase 2" class="w-8 h-8 object-contain">
+                  Phase 2
+                </span>
+                <span class="block text-lg mt-1">Launch</span>
+              </h3>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🚀</span>
+                  Official Launch on Meteora
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">💧</span>
+                  Liquidity Pool Deployment
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🔥</span>
+                  Activation of Buy & Burn System
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">📢</span>
+                  Marketing & Awareness Campaigns
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🤝</span>
+                  Community Growth Initiatives
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="roadmap-card relative overflow-hidden">
+
+            <div class="roadmap-bg absolute inset-0 bg-cover bg-center"
+              style="background-image: url('assets/images/sections/gallery/image15.jpeg');">
+            </div>
+
+            <div class="absolute inset-0 pointer-events-none
+                       bg-[radial-gradient(circle_at_center,
+                       rgba(0,0,0,0.8) 0%,
+                       rgba(0,0,0,0.95) 55%,
+                       rgba(0,0,0,1) 100%)]">
+            </div>
+
+            <div class="absolute inset-0 bg-black/85 pointer-events-none"></div>
+
+            <div class="relative z-10">
+              <h3 class="text-center font-bold text-yellow-400">
+                <span class="block text-2xl flex justify-center items-center gap-2">
+                  <img src="assets/images/icons/fire.png" alt="Phase 2" class="w-7 h-7 object-contain">
+                  Phase 3
+                </span>
+                <span class="block text-lg mt-1">Deflationary Engine</span>
+              </h3>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🔥</span>
+                  Fully Active 3% Transaction Tax
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">➡</span>
+                  Continuous Buy & Burn of DPINO Token
+                </li>
+                <br>
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Supply Reduction
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Ecosystem Value Support
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Sustainable Token Flow
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+          <div class="roadmap-card relative overflow-hidden">
+
+            <div class="roadmap-bg absolute inset-0 bg-cover bg-center"
+              style="background-image: url('assets/images/sections/gallery/image13.jpeg');">
+            </div>
+
+            <div class="absolute inset-0 pointer-events-none
+                       bg-[radial-gradient(circle_at_center,
+                       rgba(0,0,0,0.8) 0%,
+                       rgba(0,0,0,0.95) 55%,
+                       rgba(0,0,0,1) 100%)]">
+            </div>
+
+            <div class="absolute inset-0 bg-black/85 pointer-events-none"></div>
+
+            <div class="relative z-10">
+              <h3 class="text-center font-bold text-yellow-400">
+                <span class="block text-2xl flex justify-center items-center gap-2">
+                  <img src="assets/images/icons/reload.png" alt="Phase 2" class="w-6 h-6 object-contain">
+                  Phase 4
+                </span>
+                <span class="block text-lg mt-1">PijuSwap</span>
+              </h3>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🔁</span>
+                  Development & Testing
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🧪</span>
+                  Beta Optimization
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🚀</span>
+                  PijuSwap Live
+                </li>
+                <br>
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Seamless Token Swaps
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Fast Solana Transactions
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Low Fees & Smooth UX
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- CARD 5 -->
+          <div class="roadmap-card relative overflow-hidden">
+
+            <div class="roadmap-bg absolute inset-0 bg-cover bg-center"
+              style="background-image: url('assets/images/sections/gallery/image11.jpeg');">
+            </div>
+
+            <div class="absolute inset-0 pointer-events-none
+                       bg-[radial-gradient(circle_at_center,
+                       rgba(0,0,0,0.8) 0%,
+                       rgba(0,0,0,0.95) 55%,
+                       rgba(0,0,0,1) 100%)]">
+            </div>
+
+            <div class="absolute inset-0 bg-black/85 pointer-events-none"></div>
+
+            <div class="relative z-10">
+              <h3 class="text-center font-bold text-yellow-400">
+                <span class="block text-2xl flex justify-center items-center gap-2">
+                  <img src="assets/images/icons/roket.png" alt="Phase 2" class="w-8 h-8 object-contain">
+                  Phase 5
+                </span>
+                <span class="block text-lg mt-1">Piju Launchpad</span>
+              </h3>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🏗</span>
+                  Platform Development
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🧪</span>
+                  Testing & Refinement
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🧪</span>
+                  Testing & Refinement
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🚀</span>
+                  Launchpad Live
+                </li>
+                <br>
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Launch Your Own Memecoins
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Easy Token Creation
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">✔</span>
+                  Creator-Friendly Tools
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- CARD 6 -->
+          <div class="roadmap-card relative overflow-hidden">
+
+            <div class="roadmap-bg absolute inset-0 bg-cover bg-center"
+              style="background-image: url('assets/images/sections/gallery/image10.jpeg');">
+            </div>
+
+            <div class="absolute inset-0 pointer-events-none
+                       bg-[radial-gradient(circle_at_center,
+                       rgba(0,0,0,0.8) 0%,
+                       rgba(0,0,0,0.95) 55%,
+                       rgba(0,0,0,1) 100%)]">
+            </div>
+
+            <div class="absolute inset-0 bg-black/85 pointer-events-none"></div>
+
+            <div class="relative z-10">
+              <h3 class="text-center font-bold text-yellow-400">
+                <span class="block text-2xl">🌟 Phase 6</span>
+                <span class="block text-lg mt-1">Ecosystem Growth</span>
+              </h3>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">📈</span>
+                  Strategic Partnerships
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🔥</span>
+                  Enhanced Burn Mechanics
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🧩</span>
+                  Ecosystem Integrations
+                </li>
+
+                <li class="flex items-center gap-3">
+                  <span class="w-6 text-center">🌍</span>
+                  Expanded Community & Adoption
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT BUTTON -->
+        <button class="carousel-btn right" onclick="scrollRoadmap(1)">›</button>
+      </div>
+
+      <!-- DESKTOP -->
+      <p class="text-center text-gray-500 text-sm mt-6 hidden md:block">
+        ← Click arrows or scroll →
+      </p>
+
+      <!-- MOBILE HINT -->
+      <p class="text-center text-gray-500 text-sm mt-2 md:hidden">
+        ← Swipe or tap arrows →
+      </p>
+
+      <!-- VISION -->
+      <div class="mt-14 text-center max-w-3xl mx-auto">
+        <h3 class="text-2xl font-bold text-yellow-400 mb-1
+                     flex items-center justify-center gap-3 text-center">
+          <img src="assets/images/icons/diamond.png" alt="Long-Term Vision" class="w-6 h-6 object-contain">
+          Long-Term Vision
+        </h3>
+
+        <p class="text-gray-400 appear-from-bottom">
+          PijuCoin aims to evolve beyond a memecoin into a full Solana-powered ecosystem
+          driven by utility, innovation, and community.
+        </p>
+      </div>
+
+    </div>
+  </section>
+  <style>
+    /* ROADMAP */
+    .roadmap-carousel-wrapper {
+      position: relative;
+    }
+
+    .roadmap-carousel {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      padding: 12px 48px;
+    }
+
+    .roadmap-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .roadmap-card {
+      position: relative;
+      border-radius: 16px;
+      padding: 28px;
+      border: 1px solid rgba(255, 215, 100, 0.15);
+      background: none;
+      overflow: hidden;
+      box-shadow:
+        0 0 18px rgba(255, 215, 100, 0.25),
+        inset 0 0 140px rgba(0, 0, 0, 1);
+      min-width: 300px;
+      max-width: 360px;
+      scroll-snap-align: center;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 0 26px rgba(255, 215, 100, 0.35),
+        inset 0 0 14px rgba(255, 215, 100, 0.15);
+    }
+
+    .roadmap-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #ffd900;
+    }
+
+    .roadmap-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .roadmap-card li {
+      font-size: 0.95rem;
+      color: #d1d5db;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      inset-block: 0;
+      margin: auto 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 26px;
+      background: rgba(255, 215, 100, 0.18);
+      border: 1px solid rgba(255, 215, 100, 0.45);
+      color: #ffd764;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      z-index: 10;
+      transition: all 0.25s ease;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255, 215, 100, 0.35);
+    }
+
+    .carousel-btn.left {
+      left: 6px;
+    }
+
+    .carousel-btn.right {
+      right: 6px;
+    }
+
+    /* DESKTOP */
+    @media (min-width: 768px) {
+      .carousel-btn.left {
+        left: -28px;
+      }
+
+      .carousel-btn.right {
+        right: -28px;
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 767px) {
+      .roadmap-carousel {
+        padding: 12px 20px;
+        scroll-snap-type: x proximity;
+      }
+
+      .roadmap-card {
+        min-width: 88%;
+        max-width: 88%;
+      }
+    }
+  </style>
+  <script>
+    // ROADMAP
+    function scrollRoadmap(direction) {
+      const carousel = document.getElementById("roadmapCarousel");
+      const card = carousel.querySelector(".roadmap-card");
+      const gap = 24;
+      const width = card.offsetWidth + gap;
+
+      carousel.scrollBy({
+        left: direction * width,
+        behavior: "smooth"
+      });
+    }
+  </script>
+
+  <!-- MEDSOS -->
+  <section class="relative w-full bg-black overflow-hidden
+                  py-16 sm:py-20 lg:py-24 xl:py-28 2xl:py-32">
+
+    <!-- BACKGROUND IMAGE -->
+    <div class="absolute inset-0 bg-cover bg-center z-0"
+      style="background-image: url('/assets/images/sections/gallery/image10.jpeg');"></div>
+
+    <!-- DARK OVERLAY -->
+    <div class="absolute inset-0 bg-black/85 z-10"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="relative z-10
+                max-w-[1280px] 2xl:max-w-[1400px]
+                mx-auto px-4 sm:px-6 lg:px-8
+                grid grid-cols-1 lg:grid-cols-2
+                gap-12 sm:gap-14 lg:gap-20
+                items-center">
+
+      <!-- LEFT STACKED CARDS -->
+      <div class="relative w-full
+                  max-w-[300px] sm:max-w-md lg:max-w-lg
+                  h-[420px] sm:h-[500px] lg:h-[600px]
+                  mx-auto lg:mx-0">
+
+        <!-- 1 -->
+        <div class="absolute top-0 left-0
+                    w-48 sm:w-56 lg:w-64
+                    h-64 sm:h-80 lg:h-96
+                    rounded-3xl overflow-hidden z-0 appear-item" style="opacity:0; transform: translateY(30px);">
+          <img src="/assets/images/sections/gallery/image9.png" class="w-full h-full object-cover" />
+        </div>
+
+        <!-- 2 -->
+        <div class="absolute top-16 sm:top-20 lg:top-24
+                    left-10 sm:left-14 lg:left-20
+                    w-[240px] sm:w-[300px] lg:w-[360px]
+                    h-[300px] sm:h-[360px] lg:h-[420px]
+                    rounded-3xl overflow-hidden z-20
+                    shadow-[0_0_80px_rgba(234,179,8,.35)]
+                    appear-item" style="opacity:0; transform: translateY(30px);">
+          <img src="/assets/images/sections/gallery/image4.png" class="w-full h-full object-cover" />
+        </div>
+
+        <!-- 3 -->
+        <div class="absolute bottom-4 
+                    left-[220px] sm:left-[240px] lg:left-[340px]
+                    w-20 sm:w-24 lg:w-32 
+                    h-20 sm:h-24 lg:h-32
+                    rounded-2xl overflow-hidden z-30 bg-black
+                    appear-item" style="opacity:0; transform: translateY(30px);">
+          <img src="/assets/images/sections/gallery/image7.jpeg" class="w-full h-full object-cover" />
+        </div>
+
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="text-white
+                  max-w-lg xl:max-w-xl
+                  space-y-5 sm:space-y-6 lg:space-y-8
+                  text-center lg:text-left
+                  mx-auto lg:mx-0
+                  lg:pl-4 xl:pl-8
+                  lg:translate-x-3 xl:translate-x-6">
+
+
+        <!-- TITLE -->
+        <h1 class="meet-piju-scan appear-title relative inline-flex uppercase
+                   text-3xl sm:text-4xl
+                   lg:text-[2.8rem] xl:text-[3.2rem]
+                   tracking-[0.18em] sm:tracking-[0.22em] xl:tracking-widest
+                   font-extrabold text-yellow-400
+                   leading-none
+                   opacity-0 translate-y-[-40px]
+                   transition-all duration-700 ease-out">
+
+          <span class="absolute inset-0
+                       text-yellow-400 opacity-50
+                       translate-x-0.5 translate-y-0.5
+                       pointer-events-none whitespace-nowrap">
+            JOIN THE TRIBE
+          </span>
+
+          <span class="relative whitespace-nowrap">
+            JOIN THE TRIBE
+          </span>
+        </h1>
+
+        <!-- SUBTEXT -->
+        <p
+          class="text-gray-400 max-w-2xl mx-auto mt-2 opacity-0 translate-y-6 transition-all duration-700 ease-out appear-from-bottom">
+          We are loud. We are degenerate. We are here.
+          Join us before the takeover.
+        </p>
+
+        <!-- SOCIAL ICONS -->
+        <div class="flex justify-center lg:justify-start
+                    items-center gap-3 sm:gap-3 pt-3 sm:pt-4">
+
+          <!-- TIKTOK -->
+          <a href="https://www.tiktok.com/@darkpinosolana?_r=1&_t=ZN-93wzAJ8PZ95" class="appear-social
+                    w-11 sm:w-12 lg:w-14 h-11 sm:h-12 lg:h-14
+                    flex items-center justify-center
+                    rounded-xl bg-yellow-700
+                    hover:scale-110
+                    opacity-0 translate-y-[30px]
+                    transition-all duration-700 ease-out">
+            <img src="/assets/images/social/tik-tok.png" class="w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7" />
+          </a>
+
+          <!-- TWITTER -->
+          <a href="https://x.com/Pijucoin" class="appear-social w-11 sm:w-12 lg:w-14 h-11 sm:h-12 lg:h-14
+                    flex items-center justify-center
+                    rounded-xl bg-yellow-700 hover:scale-110
+                    opacity-0 translate-y-[30px]
+                    transition-all duration-700 ease-out">
+            <img src="/assets/images/social/twitter.png" class="w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7" />
+          </a>
+
+          <!-- TELEGRAM -->
+          <a href="https://t.me/+YMtd6vXpxy41Yjlh" class="appear-social w-11 sm:w-12 lg:w-14 h-11 sm:h-12 lg:h-14
+                    flex items-center justify-center
+                    rounded-xl bg-yellow-700 hover:scale-110
+                    opacity-0 translate-y-[30px]
+                    transition-all duration-700 ease-out">
+            <img src="/assets/images/social/Telegram.png" class="w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7" />
+          </a>
+
+          <!-- INSTAGRAM -->
+          <a href="https://www.instagram.com/pijucoin?igsh=dTF1bnB3Y2JxbmVt" class="appear-social w-11 sm:w-12 lg:w-14 h-11 sm:h-12 lg:h-14
+                    flex items-center justify-center
+                    rounded-xl bg-yellow-700 hover:scale-110
+                    opacity-0 translate-y-[30px]
+                    transition-all duration-700 ease-out">
+            <img src="/assets/images/social/instagram.png" class="w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7" />
+          </a>
+
+          <!-- DISCORD -->
+          <a href="https://discord.gg/Dcuf8fCyE" class="appear-social w-11 sm:w-12 lg:w-14 h-11 sm:h-12 lg:h-14
+                    flex items-center justify-center
+                    rounded-xl bg-yellow-700 hover:scale-110
+                    opacity-0 translate-y-[30px]
+                    transition-all duration-700 ease-out">
+            <img src="/assets/images/social/discord.png" class="w-5 sm:w-6 lg:w-7 h-5 sm:h-6 lg:h-7" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="bg-black text-white py-24">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- TITLE -->
+      <div class="text-center mb-10">
+        <h1 class="meet-piju-scan appear-title relative inline-flex uppercase
+                   text-3xl sm:text-4xl
+                   lg:text-[2.8rem] xl:text-[3.2rem]
+                   tracking-[0.18em] sm:tracking-[0.22em] xl:tracking-widest
+                   font-extrabold text-yellow-400
+                   leading-none
+                   opacity-0 translate-y-[-40px]
+                   transition-all duration-700 ease-out">
+
+          <!-- Layer bayangan / efek -->
+          <span class="absolute inset-0
+                       text-yellow-400 opacity-50
+                       translate-x-0.5 translate-y-0.5
+                       pointer-events-none whitespace-nowrap">
+            Contact Form
+          </span>
+
+          <!-- Teks utama -->
+          <span class="relative whitespace-nowrap">
+            Contact Form
+          </span>
+        </h1>
+        <p class="text-gray-400 max-w-2xl mx-auto mt-2
+                  opacity-0 translate-y-6
+                  transition-all duration-700 ease-out appear-from-bottom">
+          Interested in investing? Fill out your contact info below, and we will get in touch with you via phone or
+          email.
+        </p>
+      </div>
+
+      <!-- FORM -->
+      <div class="bg-black rounded-xl p-4 sm:p-6 max-w-5xl mx-auto w-full
+                  shadow-[0_0_20px_rgba(255,215,0,0.6)]">
+        <form action="https://formsubmit.co/Samarisgeorge@gmail.com" method="POST" class="space-y-3">
+
+          <!-- Hidden Config FormSubmit -->
+          <input type="hidden" name="_subject" value="New Investor Inquiry - PIJU Coin">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://pijumeme.xyz/">
+          <input type="hidden" name="_autoresponse"
+            value="Thank you for contacting PIJU Coin. Our team will respond shortly.">
+          <input type="text" name="_honey" style="display:none">
+
+          <!-- GRID 2 COLUMNS FOR NAME & EMAIL -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+            <!-- Full Name -->
+            <div>
+              <label for="name" class="block text-yellow-400 font-semibold mb-1">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Name"
+                class="w-full px-3 py-2 rounded-lg bg-gray-900 text-white focus:outline-none transition" required>
+            </div>
+
+            <!-- Email Address -->
+            <div>
+              <label for="email" class="block text-yellow-400 font-semibold mb-1">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Email"
+                class="w-full px-3 py-2 rounded-lg bg-gray-900 text-white focus:outline-none" required>
+            </div>
+
+          </div>
+
+          <!-- Phone Number -->
+          <div>
+            <label for="phone" class="block text-yellow-400 font-semibold mb-1">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number"
+              class="w-full px-3 py-2 rounded-lg bg-gray-900 text-white focus:outline-none">
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-yellow-400 font-semibold mb-1">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your inquiry here..."
+              class="w-full px-3 py-2 rounded-lg bg-gray-900 text-white focus:outline-none" required></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button type="submit"
+              class="w-full sm:w-auto bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+              Submit Inquiry
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION PIJU : Dark Modern Futuristic -->
+  <section class="relative text-gray-400 pt-20 pb-10 overflow-hidden" style="background-image: url('/assets/images/sections/chart/chart3.jpeg'); 
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;">
+
+    <!-- BlACK OVERLAY -->
+    <div class="absolute inset-0 bg-black/80 pointer-events-none"></div>
+
+    <!-- GlOW BACKGROUND -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-black/30 blur-[160px]"></div>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-6">
+
+      <!-- TOP SECTION (Flex Version) -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-16 mb-16 w-full max-w-4xl mx-auto">
+
+        <!-- BRAND -->
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-extrabold tracking-widest text-yellow-400 mb-4">
+            PIJU
+          </h3>
+          <p class="text-sm leading-relaxed">
+            Part of the
+            <span class="text-yellow-400 font-semibold">Dark Pinoverse</span>.<br />
+            A bold, chaotic, and fearless Solana meme entity.
+          </p>
+        </div>
+
+        <!-- COMMUNITY -->
+        <div class="text-center">
+          <h4 class="text-sm font-bold text-yellow-400 tracking-wider mb-4">
+            COMMUNITY
+          </h4>
+
+          <div class="flex items-center justify-center gap-2">
+
+            <!-- TIKTOK -->
+            <div class="group relative flex flex-col items-center">
+              <a href="https://www.tiktok.com/@darkpinosolana?_r=1&_t=ZN-93wzAJ8PZ95"
+                class="group w-10 h-10 rounded-full flex items-center justify-center hover:border-yellow-400 transition">
+                <div
+                  class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 group hover:border-gray-400 transition">
+                  <img src="/assets/images/social/tik-tok.png" alt="Community Icon"
+                    class="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition" />
+                </div>
+              </a>
+              <span
+                class="absolute -bottom-6 text-[10px] tracking-wider text-yellow-400 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-1">
+                TIKTOK
+              </span>
+            </div>
+
+            <!-- TWITTER -->
+            <div class="group relative flex flex-col items-center">
+              <a href="https://x.com/Pijucoin"
+                class="group w-10 h-10 rounded-full flex items-center justify-center hover:border-gray-400 transition">
+                <div
+                  class="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 group hover:border-gray-400 transition">
+                  <img src="/assets/images/social/twitter.png" alt="Community Icon"
+                    class="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition" />
+                </div>
+              </a>
+              <span
+                class="absolute -bottom-6 text-[10px] tracking-wider text-yellow-400 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-1">
+                TWITTER
+              </span>
+            </div>
+
+            <!-- TELEGRAM -->
+            <div class="group relative flex flex-col items-center">
+              <a href="https://t.me/+YMtd6vXpxy41Yjlh"
+                class="group w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-gray-400 transition">
+                <img src="/assets/images/social/Telegram.png" alt="Community Icon"
+                  class="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition" />
+              </a>
+              <span
+                class="absolute -bottom-6 text-[10px] tracking-wider text-yellow-400 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-1">
+                TELEGRAM
+              </span>
+            </div>
+
+            <!-- INSTAGRAM -->
+            <div class="group relative flex flex-col items-center">
+              <a href="https://www.instagram.com/pijucoin?igsh=dTF1bnB3Y2JxbmVt"
+                class="group w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:border-gray-400 transition">
+                <img src="/assets/images/social/instagram.png" alt="Community Icon"
+                  class="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition" />
+              </a>
+              <span
+                class="absolute -bottom-6 text-[10px] tracking-wider text-yellow-400 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-1">
+                INSTAGRAM
+              </span>
+            </div>
+
+            <!-- DISCORD -->
+            <div class="group relative flex flex-col items-center">
+              <a href="https://discord.gg/Dcuf8fCyE"
+                class="group w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:border-gray-400 transition">
+                <img src="/assets/images/social/discord.png" alt="Discord Icon"
+                  class="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition" />
+              </a>
+              <span
+                class="absolute -bottom-6 text-[10px] tracking-wider text-yellow-400 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-1">
+                DISCORD
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
+
+      <!-- BOTTOM -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-xs text-gray-500">
+        <p>© 2026 PIJU. All rights reserved.</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="/js/animations.js"></script>
+
+</body>
+
+</html>

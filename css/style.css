@@ -1,0 +1,669 @@
+/* NAVBAR WALLET */
+/* Animasi denyut custom */
+@keyframes pulse-js {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.animate-pulse-js {
+  animation: pulse-js 0.6s ease-in-out;
+}
+
+/* CONTENT 1. */
+/* FLOATING IMAGE GO PIJU */
+@keyframes pulse-coin {
+  0%,
+  100% {
+    transform: scale(1.05);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.animate-pulse-coin {
+  animation: pulse-coin 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* CARD TIME */
+.countdown-box {
+  box-shadow:
+    0 0 6px rgba(255, 215, 100, 0.45),
+    0 0 14px rgba(255, 216, 100, 0);
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.countdown-box.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================== */
+
+/* TICKER */
+.bullish-tape-wrapper {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  background: #000;
+  overflow: hidden;
+  margin: -40px 0;
+}
+
+/* TAPE */
+.bullish-tape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 240%;
+  height: 46px;
+  background: #916f01;
+  border-top: 3px solid #ffd000;
+  border-bottom: 3px solid #ffd000;
+  display: flex;
+  align-items: center;
+  transform-origin: center;
+}
+
+.tape-neg {
+  transform: translate(-50%, -50%) rotate(-4.5deg);
+}
+
+.tape-pos {
+  transform: translate(-50%, -50%) rotate(4.5deg);
+}
+
+/* TRACK */
+.bullish-track {
+  display: flex;
+  width: max-content;
+  animation: move 15s linear infinite;
+}
+
+.bullish-track.reverse {
+  animation-direction: reverse;
+}
+
+.track {
+  display: flex;
+  gap: 28px;
+  padding-right: 28px;
+}
+
+/* TEXT */
+.bullish-track span {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px rgba(125, 255, 99, 0.4);
+}
+
+/* LOOP PERFECT */
+@keyframes move {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================== */
+
+/* CONTENT 2. */
+/* TEXT AVAILABLE ON */
+.meet-piju-scan {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cahaya scan emas */
+.meet-piju-scan::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -50%;
+  width: 35%;
+  height: 140%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 215, 100, 0.15) 45%,
+    rgba(255, 215, 100, 0.45) 50%,
+    rgba(255, 215, 100, 0.15) 55%,
+    transparent 100%
+  );
+  filter: blur(10px);
+  animation: piju-scan 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+/* ANIMASI SCAN */
+@keyframes piju-scan {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(300%);
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(300%);
+    opacity: 0;
+  }
+}
+
+/* ===== GRID ===== */
+.logo-card {
+  transform: translateY(40px);
+  opacity: 0;
+  transition:
+    transform 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s ease;
+}
+
+.logo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* LOGO CARD */
+.logo-card {
+  height: 120px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #0d0d0d, #000);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+
+  /* GLOW DEFAULT */
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.15),
+    0 0 20px rgba(255, 215, 0, 0.1),
+    0 0 30px rgba(255, 215, 0, 0.05);
+}
+
+.logo-card img {
+  max-width: 90%;
+  max-height: 64px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.25));
+  transition: transform 0.25s ease;
+}
+
+/* HOVER EFFECT */
+.logo-card:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 0 20px rgba(255, 215, 0, 0.25),
+    0 0 40px rgba(255, 215, 0, 0.15),
+    0 0 60px rgba(255, 215, 0, 0.08);
+}
+
+.logo-card:hover img {
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 640px) {
+  .logo-card {
+    padding: 12px;
+    height: 100px;
+    border-radius: 16px;
+  }
+
+  .logo-card img {
+    max-height: 60px;
+  }
+
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* ============================= DISABLED =============================*/
+.logo-card {
+  cursor: not-allowed;
+}
+
+.logo-card img {
+  filter: grayscale(100%) brightness(0.9);
+  transform: none;
+}
+
+/* GRID */
+.merch-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+}
+
+.merch-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MERCH CARD */
+.merch-title {
+  font-family: "Impact", sans-serif;
+  text-shadow:
+    0 0 12px rgba(255, 255, 255, 0.35),
+    0 0 32px rgba(255, 255, 255, 0.15);
+}
+
+.merch-card {
+  background: linear-gradient(180deg, #0b0f1a, #05080f);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  /* GLOW DEFAULT */
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.15),
+    0 0 20px rgba(255, 215, 0, 0.1),
+    0 0 30px rgba(255, 215, 0, 0.05);
+}
+
+/* CARD IMAGE */
+.merch-card img {
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: all 0.35s ease;
+  aspect-ratio: 4/3;
+  min-height: 320px;
+}
+
+/* HOVER IMAGE */
+.merch-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* HOVER CARD */
+.merch-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 0 20px rgba(255, 215, 0, 0.25),
+    0 0 40px rgba(255, 215, 0, 0.15),
+    0 0 60px rgba(255, 215, 0, 0.08),
+    0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* CARD TEXT */
+.merch-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.merch-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+}
+
+/* RESPONSIVE */
+/* tablet */
+@media (max-width: 1024px) {
+  .merch-card img {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 640px) {
+  .max-w-6xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .merch-card {
+    border-radius: 12px;
+    width: 100%;
+  }
+
+  .grid {
+    gap: 1.5rem;
+  }
+
+  .merch-name {
+    font-size: 1rem;
+  }
+
+  .merch-desc {
+    font-size: 0.75rem;
+  }
+
+  /* mobile */
+  .merch-card img {
+    min-height: 360px;
+  }
+}
+
+/* TEAM ORIGIN SECTION */
+/* ANIMASI */
+.appear-from-left {
+  transform: translateX(-40px);
+  opacity: 0;
+  transition:
+    transform 0.8s ease-out,
+    opacity 0.8s ease-out;
+  will-change: transform, opacity;
+}
+
+/* GLOW SECTION */
+.glow-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.15),
+    0 0 20px rgba(255, 215, 0, 0.1),
+    0 0 30px rgba(255, 215, 0, 0.05);
+  pointer-events: none;
+}
+
+/* CONTENT 4. */
+/* PURE UNADULTERATED CHAOS */
+/* CARD LANAN */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.appear-from-right {
+  transform: translateX(50px);
+  opacity: 0;
+  transition:
+    transform 1s ease-out,
+    opacity 1s ease-out;
+  will-change: transform, opacity;
+}
+
+/* BOTTOM STATS */
+.appear-card {
+  transform: translateY(25px);
+  opacity: 0;
+  transition:
+    transform 0.8s ease-in-out,
+    opacity 0.8s ease-in-out;
+  will-change: transform, opacity;
+}
+
+.appear-card[data-index="0"] {
+  transition-delay: 0s;
+}
+
+.appear-card[data-index="1"] {
+  transition-delay: 0.15s;
+}
+
+.appear-card[data-index="2"] {
+  transition-delay: 0.3s;
+}
+
+.appear-card[data-index="3"] {
+  transition-delay: 0.45s;
+}
+
+.appear-card.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* COLOR CARD */
+.feature-glow .glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  pointer-events: none;
+
+  /* DEXSCREENER IDLE GLOW (YELLOW, NOT GOLD) */
+  box-shadow:
+    0 0 4px rgba(250, 204, 21, 0.18),
+    0 0 12px rgba(250, 204, 21, 0.14),
+    0 0 28px rgba(250, 204, 21, 0.1),
+    0 0 60px rgba(250, 204, 21, 0.06);
+
+  transition:
+    box-shadow 0.45s ease,
+    filter 0.45s ease;
+}
+
+.feature-glow .glow-card:hover::before {
+  /* DEXSCREENER HOVER GLOW */
+  box-shadow:
+    0 0 8px rgba(250, 204, 21, 0.26),
+    0 0 20px rgba(250, 204, 21, 0.2),
+    0 0 44px rgba(250, 204, 21, 0.14),
+    0 0 80px rgba(250, 204, 21, 0.1);
+
+  filter: brightness(1.1);
+}
+
+/* CONTENT 5. */
+/* TOKENOMICS */
+/* Cards */
+.glow-card {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* HOVER MOVEMENT */
+.glow-card:hover {
+  transform: scale(1.025) translateY(-4px);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .glow-card:hover {
+    transform: scale(1.015);
+  }
+}
+
+/* GLOW */
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  /* GOLD SOFT GLOW (IDLE) */
+  box-shadow:
+    0 0 6px rgba(255, 200, 80, 0.18),
+    0 0 14px rgba(255, 200, 80, 0.12),
+    0 0 26px rgba(255, 200, 80, 0.06);
+
+  transition:
+    box-shadow 0.45s ease,
+    filter 0.45s ease;
+}
+
+/* HOVER */
+.glow-card:hover::before {
+  box-shadow:
+    0 0 10px rgba(255, 200, 80, 0.22),
+    0 0 26px rgba(255, 200, 80, 0.16),
+    0 0 48px rgba(255, 200, 80, 0.08);
+
+  filter: brightness(1.2);
+}
+
+/* LP LOCKED */
+.glow-static {
+  position: relative;
+  z-index: 1;
+}
+
+/* STATIC GOLD GLOW LIKE CARD */
+.glow-static::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  /* GOLD SOFT GLOW (IDLE) */
+  box-shadow:
+    0 0 6px rgba(255, 200, 80, 0.18),
+    0 0 14px rgba(255, 200, 80, 0.12),
+    0 0 26px rgba(255, 200, 80, 0.06);
+}
+
+/* BACKGROUND CONTENT */
+/* SECTION BACKGROUND */
+#tokenomics {
+  position: relative;
+  background: url("/assets/images/sections/chart/chart2.png") center center /
+    cover no-repeat;
+}
+
+#tokenomics::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 0;
+}
+
+/* CONTENT TOP OVERLAY */
+#tokenomics > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* CARD POLISH */
+#tokenomics .border {
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+/* LP */
+#tokenomics .border-dashed {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* TITLE */
+#tokenomics h2 {
+  text-shadow:
+    0 0 10px rgba(255, 200, 0, 0.35),
+    0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+/* TOKENOMICS CARDS HOVER (SUBTLE) */
+#tokenomics .border:not(.border-dashed) {
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+#tokenomics .border:not(.border-dashed):hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 8px 20px rgba(255, 200, 0, 0.2),
+    inset 0 0 15px rgba(255, 200, 0, 0.05);
+  border-color: rgba(255, 200, 0, 0.4);
+}
+
+/* LP Locked */
+#tokenomics .border-dashed {
+  cursor: default;
+  transition: none;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* CONTENT 7. */
+.appear-social {
+  will-change: scale;
+}
+
+/* hover zoom */
+.appear-social:hover {
+  scale: 1.12;
+  filter: drop-shadow(0 0 18px rgba(0, 0, 0, 0.35));
+}
+
+/* klik feedback */
+.appear-social:active {
+  scale: 1.05;
+}
+
+.appear-social {
+  cursor: pointer;
+}
+
+/* MEDIA SOSIAL */
+.appear-social {
+  position: relative;
+  z-index: 0;
+}
+
+.appear-social::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    0 0 5px rgba(250, 204, 21, 0.5),
+    0 0 15px rgba(250, 204, 21, 0.3);
+  z-index: -1;
+}
