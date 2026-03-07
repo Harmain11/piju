@@ -337,7 +337,7 @@
     <div id="piju-chat-bubble">
       <div id="piju-chat-window">
         <div id="piju-chat-header">
-          <img src="/assets/images/sections/gallery/image2.png" alt="PIJU Bot" />
+          <img src="/assets/images/branding/piju-bot-avatar.png" alt="PIJU Bot" />
           <div id="piju-chat-header-info">
             <div id="piju-chat-header-name">PIJU BOT</div>
             <div id="piju-chat-header-status">
@@ -368,7 +368,7 @@
       </div>
 
       <button id="piju-chat-toggle" title="Chat with PIJU Bot">
-        <img src="/assets/images/sections/gallery/image2.png" alt="PIJU Bot" />
+        <img src="/assets/images/branding/piju-bot-avatar.png" alt="PIJU Bot" />
       </button>
     </div>
   `;
@@ -405,7 +405,7 @@
     const msg = document.createElement("div");
     msg.className = "piju-msg bot";
     msg.innerHTML = `
-      <div class="piju-msg-avatar"><img src="/assets/images/sections/gallery/image2.png" alt="PIJU" /></div>
+      <div class="piju-msg-avatar"><img src="/assets/images/branding/piju-bot-avatar.png" alt="PIJU" /></div>
       <div class="piju-msg-bubble">${escapeHtml(text)}</div>
     `;
     messagesContainer.appendChild(msg);
@@ -425,7 +425,7 @@
     row.className = "piju-msg bot";
     row.id = "piju-typing-row";
     row.innerHTML = `
-      <div class="piju-msg-avatar"><img src="/assets/images/sections/gallery/image2.png" alt="PIJU" /></div>
+      <div class="piju-msg-avatar"><img src="/assets/images/branding/piju-bot-avatar.png" alt="PIJU" /></div>
       <div class="piju-typing"><span></span><span></span><span></span></div>
     `;
     messagesContainer.appendChild(row);
