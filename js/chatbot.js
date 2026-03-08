@@ -485,7 +485,7 @@
     const typingRow = addTypingIndicator();
 
     try {
-      const res = await fetch("/api/chat", {
+      const res = await fetch("/api/chat.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: text, history: chatHistory.slice(0, -1) })
