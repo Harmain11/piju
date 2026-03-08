@@ -2,123 +2,65 @@
   PIJU COIN WEBSITE — HOSTINGER DEPLOYMENT GUIDE
 ================================================================
 
-WHAT YOU NEED
-  - Hostinger hosting plan (any shared plan works)
-  - An Anthropic API key for the chatbot
-  - FileZilla (free FTP app) OR Hostinger File Manager
-
-================================================================
-  STEP 1 — GET YOUR ANTHROPIC API KEY
+STEP 1 — ADD YOUR API KEY (do this before uploading)
 ================================================================
 
-  1. Go to https://console.anthropic.com
-  2. Sign in or create a free account
-  3. Click "API Keys" in the left menu
-  4. Click "Create Key", give it a name like "PIJU Bot"
-  5. Copy the key — it looks like: sk-ant-api03-xxxxx...
-  6. Keep it safe, you'll need it in Step 2
+  Open this file in any text editor:
+
+    api/chat.php
+
+  Line 4 looks like this:
+    $ANTHROPIC_API_KEY = getenv('ANTHROPIC_API_KEY') ?: 'YOUR_API_KEY_HERE';
+
+  Replace   YOUR_API_KEY_HERE   with your real Anthropic API key:
+    $ANTHROPIC_API_KEY = getenv('ANTHROPIC_API_KEY') ?: 'sk-ant-api03-...';
+
+  Get your key at: https://console.anthropic.com
+
+  Save the file. That's the only edit needed.
 
 ================================================================
-  STEP 2 — ADD YOUR API KEY TO THE PROJECT
+STEP 2 — UPLOAD TO HOSTINGER public_html
 ================================================================
 
-  Open this file in any text editor (Notepad, VS Code, etc.):
+  Upload these files/folders directly into public_html:
 
-    api/config.php
+    index.html
+    .htaccess
+    css/
+    js/
+    assets/
+    api/              <-- contains only chat.php now
 
-  Find this line:
-    define('ANTHROPIC_API_KEY', getenv('ANTHROPIC_API_KEY') ?: 'your-anthropic-api-key-here');
-
-  Replace   your-anthropic-api-key-here   with your actual key:
-    define('ANTHROPIC_API_KEY', getenv('ANTHROPIC_API_KEY') ?: 'sk-ant-api03-YOUR-KEY');
-
-  Save the file.
-
-================================================================
-  STEP 3 — UPLOAD FILES TO HOSTINGER
-================================================================
-
-  METHOD A — Hostinger File Manager (easiest, no app needed)
-  ---------------------------------------------------------
-  1. Log in at https://hpanel.hostinger.com
-  2. Click "Files" in the top menu, then "File Manager"
-  3. Open the "public_html" folder on the left
-  4. Click the "Upload" button (top toolbar)
-  5. Upload these files and folders:
-
-       index.html
-       .htaccess
-       css/          (entire folder)
-       js/           (entire folder)
-       assets/       (entire folder)
-       api/          (entire folder — includes your API key)
-
-  6. Make sure all files land directly inside public_html
-     (not inside a subfolder like public_html/piju/)
-
-  METHOD B — FileZilla FTP (for larger uploads)
-  ---------------------------------------------
-  1. In Hostinger hPanel, go to Files > FTP Accounts
-  2. Create an FTP account and note the Host, Username, Password
-  3. Open FileZilla (filezilla-project.org — free download)
-  4. Enter Host, Username, Password, Port 21 — click Quickconnect
-  5. On the right side (server), navigate to /public_html
-  6. On the left side (your computer), find your project folder
-  7. Drag the files listed above into /public_html
+  Make sure they land directly in public_html, not in a subfolder.
 
 ================================================================
-  STEP 4 — YOU'RE LIVE!
+STEP 3 — DONE
 ================================================================
 
-  Visit your Hostinger domain in a browser.
-  Click the chat bubble in the bottom-right corner.
-  Type "What is PIJU?" to test the bot.
-
-  That's it! No server setup, no command line needed.
+  Visit your domain. Click the chat bubble. Test it.
 
 ================================================================
-  FILES TO UPLOAD (checklist)
+TROUBLESHOOTING
 ================================================================
 
-  [x] index.html           Main website page
-  [x] .htaccess            Makes routing work on Hostinger
-  [x] css/style.css        Styles
-  [x] js/animations.js     Animations
-  [x] js/chatbot.js        Chat bubble code
-  [x] assets/              All images, videos, and audio
-  [x] api/chat.php         Chatbot backend (PHP)
-  [x] api/config.php       YOUR API KEY GOES HERE
-  [x] api/.htaccess        Security — protects your API key
+  Bot says "API key not set..."
+    → You didn't replace YOUR_API_KEY_HERE in api/chat.php.
+      Re-open the file, add the key, re-upload api/chat.php.
 
-  DO NOT upload these (not needed on Hostinger):
-  [ ] functions/           Cloudflare only
-  [ ] node_modules/        Not needed
-  [ ] package.json         Not needed
-  [ ] replit.md            Not needed
-  [ ] DEPLOY.txt           Not needed (optional reference)
+  Bot says "cURL is disabled..."
+    → In Hostinger hPanel go to: Hosting > Manage > PHP Configuration
+      Make sure "curl" extension is enabled. Save and try again.
 
-================================================================
-  TROUBLESHOOTING
-================================================================
+  Bot says "Connection failed: ..."
+    → Paste the full error message in chat and we'll fix it.
 
-Problem: Chat bubble shows "Network error"
-  Fix: Open api/config.php and make sure your API key is there
-       (not the placeholder text). Re-upload the file.
+  Site shows a directory listing or 403 error
+    → Make sure .htaccess was uploaded. Some FTP clients hide
+      dot files — in FileZilla go to Server > Force showing
+      hidden files, then re-upload .htaccess.
 
-Problem: Chat bubble shows "API key not configured"
-  Fix: Same as above — the placeholder wasn't replaced.
-
-Problem: Site loads but images/video are broken
-  Fix: Make sure you uploaded the full assets/ folder,
-       and that files are in public_html (not a subfolder).
-
-Problem: Chatbot worked before but stopped
-  Fix: Your Anthropic API key may have run out of credits.
-       Go to console.anthropic.com and top up your balance.
-
-Problem: Page shows a directory listing or 403 error
-  Fix: Make sure .htaccess was uploaded. Some FTP clients
-       hide "dot files" — enable "Show hidden files" in FileZilla
-       (Server menu > Force showing hidden files).
+  Images or video broken
+    → Make sure you uploaded the full assets/ folder.
 
 ================================================================
