@@ -491,18 +491,25 @@
         body: JSON.stringify({ message: text, history: chatHistory.slice(0, -1) })
       });
 
-      const data = await res.json();
+      let data;
+      try { data = await res.json(); } catch(e) {
+        removeTypingIndicator();
+        addBotMessage("Server error (invalid response). Make sure api/config.php has your API key and re-upload to Hostinger.");
+        return;
+      }
       removeTypingIndicator();
 
       if (data.reply) {
         addBotMessage(data.reply);
         chatHistory.push({ role: "assistant", content: data.reply });
+      } else if (data.error) {
+        addBotMessage("Error: " + data.error);
       } else {
         addBotMessage("Something went wrong on my end. Try again in a sec!");
       }
     } catch (err) {
       removeTypingIndicator();
-      addBotMessage("Network error — couldn't reach the server. Try again!");
+      addBotMessage("Network error — couldn't reach the server. Check your Hostinger upload includes the api/ folder.");
     } finally {
       sendBtn.disabled = false;
       inputEl.disabled = false;
