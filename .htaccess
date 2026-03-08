@@ -1,0 +1,24 @@
+Options -Indexes
+
+# Serve index.html as the default document
+DirectoryIndex index.html
+
+# Allow CORS for the API
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type"
+</IfModule>
+
+# Clean URLs — route all requests through index.html except real files & api
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Let real files and directories pass through
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Route everything else to index.html
+    RewriteRule ^ index.html [L]
+</IfModule>
