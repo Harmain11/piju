@@ -1,208 +1,124 @@
 ================================================================
-  PIJU COIN WEBSITE — DEPLOYMENT GUIDE
+  PIJU COIN WEBSITE — HOSTINGER DEPLOYMENT GUIDE
 ================================================================
 
-This project can be deployed in three ways:
-  A) Hostinger (shared hosting — PHP)
-  B) Cloudflare Pages (free, fast, global CDN)
-  C) Replit (already running if you're reading this there)
+WHAT YOU NEED
+  - Hostinger hosting plan (any shared plan works)
+  - An Anthropic API key for the chatbot
+  - FileZilla (free FTP app) OR Hostinger File Manager
 
 ================================================================
-  A) DEPLOYING TO HOSTINGER  ← recommended for beginners
+  STEP 1 — GET YOUR ANTHROPIC API KEY
 ================================================================
 
-REQUIREMENTS:
-  - A Hostinger shared hosting plan (Business or above recommended)
-  - An Anthropic API key (get one at console.anthropic.com)
-  - FTP client like FileZilla, or use Hostinger File Manager
+  1. Go to https://console.anthropic.com
+  2. Sign in or create a free account
+  3. Click "API Keys" in the left menu
+  4. Click "Create Key", give it a name like "PIJU Bot"
+  5. Copy the key — it looks like: sk-ant-api03-xxxxx...
+  6. Keep it safe, you'll need it in Step 2
 
-STEP 1 — Add your API key to the config file
-  Open this file in a text editor:
+================================================================
+  STEP 2 — ADD YOUR API KEY TO THE PROJECT
+================================================================
+
+  Open this file in any text editor (Notepad, VS Code, etc.):
+
     api/config.php
 
   Find this line:
-    define('ANTHROPIC_API_KEY', 'your-anthropic-api-key-here');
+    define('ANTHROPIC_API_KEY', getenv('ANTHROPIC_API_KEY') ?: 'your-anthropic-api-key-here');
 
-  Replace 'your-anthropic-api-key-here' with your actual key:
-    define('ANTHROPIC_API_KEY', 'sk-ant-api03-...');
+  Replace   your-anthropic-api-key-here   with your actual key:
+    define('ANTHROPIC_API_KEY', getenv('ANTHROPIC_API_KEY') ?: 'sk-ant-api03-YOUR-KEY');
 
-  Save the file. Do NOT share or commit this file publicly.
-
-STEP 2 — Upload files to Hostinger
-  Option A — Using Hostinger File Manager:
-    1. Log in to hpanel.hostinger.com
-    2. Go to "Files" > "File Manager"
-    3. Navigate to the "public_html" folder
-    4. Click "Upload" and upload ALL project files
-       (or drag and drop the entire project folder)
-
-  Option B — Using FTP (FileZilla):
-    1. In Hostinger hPanel, go to "Files" > "FTP Accounts"
-    2. Note the FTP hostname, username, and set a password
-    3. Open FileZilla, connect using those credentials
-    4. Navigate to /public_html on the right (server) side
-    5. Drag all project files to /public_html
-
-  Files to upload (upload the entire project folder):
-    index.html
-    .htaccess
-    css/
-    js/
-    assets/
-    api/
-      chat.php
-      config.php   ← contains your API key — handle with care
-      .htaccess    ← protects config.php from public access
-
-  Do NOT upload:
-    server.py          (Replit only)
-    functions/         (Cloudflare only)
-    replit.md
-    DEPLOY.txt
-    package.json
-    pyproject.toml
-
-STEP 3 — Enable PHP and cURL (usually already on by default)
-  On Hostinger, PHP and cURL are enabled by default on all plans.
-  If the chatbot does not work, check:
-    hPanel > "Advanced" > "PHP Configuration"
-    Make sure PHP 8.0+ is selected and cURL extension is enabled.
-
-STEP 4 — Test your site
-  Visit your domain. Click the chat bubble in the bottom right.
-  Type "What is PIJU?" — you should get a response from the bot.
-
-HOW IT WORKS ON HOSTINGER:
-  - index.html and all assets are served as static files
-  - The chatbot sends requests to /api/chat
-  - api/chat.php receives the request, calls Anthropic API via cURL
-  - The response is returned to the chat bubble
-  - Your API key lives in api/config.php and is never exposed publicly
-    (api/.htaccess blocks direct browser access to config.php)
-
-WHERE IS THE API KEY?
-  api/config.php — open that file and paste your key there.
-  It is protected by api/.htaccess so no one can read it via browser.
+  Save the file.
 
 ================================================================
-  B) DEPLOYING TO CLOUDFLARE PAGES
+  STEP 3 — UPLOAD FILES TO HOSTINGER
 ================================================================
 
-REQUIREMENTS:
-  - A free Cloudflare account (cloudflare.com)
-  - Your GitHub repo connected to Cloudflare
-  - An Anthropic API key (get one at console.anthropic.com)
+  METHOD A — Hostinger File Manager (easiest, no app needed)
+  ---------------------------------------------------------
+  1. Log in at https://hpanel.hostinger.com
+  2. Click "Files" in the top menu, then "File Manager"
+  3. Open the "public_html" folder on the left
+  4. Click the "Upload" button (top toolbar)
+  5. Upload these files and folders:
 
-STEP 1 — Connect your GitHub repo to Cloudflare Pages
-  1. Log in to dash.cloudflare.com
-  2. Go to "Workers & Pages" in the left sidebar
-  3. Click "Create" then "Pages" tab
-  4. Click "Connect to Git"
-  5. Authorize Cloudflare to access your GitHub account
-  6. Select the repository: Harmain11/piju
-  7. Click "Begin setup"
+       index.html
+       .htaccess
+       css/          (entire folder)
+       js/           (entire folder)
+       assets/       (entire folder)
+       api/          (entire folder — includes your API key)
 
-STEP 2 — Configure the build settings
-  On the build settings screen:
-    Framework preset:    None
-    Build command:       (leave empty)
-    Build output dir:    /  (a single forward slash — the root)
-  Click "Save and Deploy"
+  6. Make sure all files land directly inside public_html
+     (not inside a subfolder like public_html/piju/)
 
-STEP 3 — Add your Anthropic API key (IMPORTANT)
-  1. After the first deploy finishes, go to your Pages project
-  2. Click "Settings" in the top tabs
-  3. Click "Environment variables" in the left sidebar
-  4. Click "Add variable"
-  5. Set:
-       Variable name:  ANTHROPIC_API_KEY
-       Value:          sk-ant-api03-...  (your actual key)
-  6. Set it for both "Production" and "Preview"
-  7. Click "Save"
-  8. Go back to "Deployments" and click "Retry deployment"
-
-  WHERE IS THE API KEY on Cloudflare?
-    In the Cloudflare Pages dashboard under:
-    Your Project > Settings > Environment Variables > ANTHROPIC_API_KEY
-
-HOW IT WORKS ON CLOUDFLARE:
-  - Static files served by Cloudflare CDN (no server needed)
-  - /api/chat handled by functions/api/chat.js (Cloudflare Function)
-  - API key stored as environment variable, never in code
+  METHOD B — FileZilla FTP (for larger uploads)
+  ---------------------------------------------
+  1. In Hostinger hPanel, go to Files > FTP Accounts
+  2. Create an FTP account and note the Host, Username, Password
+  3. Open FileZilla (filezilla-project.org — free download)
+  4. Enter Host, Username, Password, Port 21 — click Quickconnect
+  5. On the right side (server), navigate to /public_html
+  6. On the left side (your computer), find your project folder
+  7. Drag the files listed above into /public_html
 
 ================================================================
-  C) DEPLOYING ON REPLIT
+  STEP 4 — YOU'RE LIVE!
 ================================================================
 
-STEP 1 — Open the project in Replit
+  Visit your Hostinger domain in a browser.
+  Click the chat bubble in the bottom-right corner.
+  Type "What is PIJU?" to test the bot.
 
-STEP 2 — Add your API key
-  1. Click the "Secrets" tab (padlock icon) in the left sidebar
-  2. Add a new secret:
-       Key:    ANTHROPIC_API_KEY
-       Value:  sk-ant-api03-...
-  3. Click "Add Secret"
-
-STEP 3 — Run the project
-  The workflow "Start application" runs:  python3 server.py
-  This starts a Flask server on port 5000.
-
-STEP 4 — Deploy to production
-  Click "Deploy" in the top-right corner of Replit.
-  Choose "Autoscale". API key from Secrets is used automatically.
+  That's it! No server setup, no command line needed.
 
 ================================================================
-  PROJECT FILE STRUCTURE
+  FILES TO UPLOAD (checklist)
 ================================================================
 
-  index.html              Main website (single page)
-  .htaccess               Apache config (Hostinger routing)
-  css/style.css           Custom styles
-  js/animations.js        Page animations
-  js/chatbot.js           Chatbot bubble UI and logic
-  assets/                 Images, videos, audio
+  [x] index.html           Main website page
+  [x] .htaccess            Makes routing work on Hostinger
+  [x] css/style.css        Styles
+  [x] js/animations.js     Animations
+  [x] js/chatbot.js        Chat bubble code
+  [x] assets/              All images, videos, and audio
+  [x] api/chat.php         Chatbot backend (PHP)
+  [x] api/config.php       YOUR API KEY GOES HERE
+  [x] api/.htaccess        Security — protects your API key
 
-  -- Hostinger (PHP) --
-  api/chat.php            Chat API endpoint (PHP + cURL)
-  api/config.php          PUT YOUR API KEY HERE for Hostinger
-  api/.htaccess           Blocks public access to config.php
-
-  -- Cloudflare Pages --
-  functions/api/chat.js   Chat API endpoint (Cloudflare Worker)
-
-  -- Replit --
-  server.py               Flask server (serves files + chat API)
-
-================================================================
-  GETTING AN ANTHROPIC API KEY
-================================================================
-
-  1. Go to console.anthropic.com
-  2. Sign in or create a free account
-  3. Click "API Keys" in the left menu
-  4. Click "Create Key", give it a name (e.g. "PIJU Bot")
-  5. Copy the key — it starts with "sk-ant-api03-..."
-  6. Paste it into the appropriate place:
-       Hostinger:   api/config.php
-       Cloudflare:  Pages dashboard > Environment Variables
-       Replit:      Secrets panel
+  DO NOT upload these (not needed on Hostinger):
+  [ ] functions/           Cloudflare only
+  [ ] node_modules/        Not needed
+  [ ] package.json         Not needed
+  [ ] replit.md            Not needed
+  [ ] DEPLOY.txt           Not needed (optional reference)
 
 ================================================================
   TROUBLESHOOTING
 ================================================================
 
-Chatbot says "Network error":
-  - Hostinger: Check api/config.php has the real key (not placeholder)
-  - Hostinger: Make sure PHP and cURL are enabled in hPanel
-  - Cloudflare: Add ANTHROPIC_API_KEY env var and redeploy
-  - All: Make sure the API key is valid and not revoked
+Problem: Chat bubble shows "Network error"
+  Fix: Open api/config.php and make sure your API key is there
+       (not the placeholder text). Re-upload the file.
 
-Chatbot page loads but bot doesn't respond:
-  - Check browser console for errors (F12 > Console tab)
-  - Verify /api/chat returns a response (check Network tab in F12)
+Problem: Chat bubble shows "API key not configured"
+  Fix: Same as above — the placeholder wasn't replaced.
 
-Site loads but assets are missing (broken images/video):
-  - Make sure you uploaded the full assets/ folder
-  - Check file paths are relative (they should be by default)
+Problem: Site loads but images/video are broken
+  Fix: Make sure you uploaded the full assets/ folder,
+       and that files are in public_html (not a subfolder).
+
+Problem: Chatbot worked before but stopped
+  Fix: Your Anthropic API key may have run out of credits.
+       Go to console.anthropic.com and top up your balance.
+
+Problem: Page shows a directory listing or 403 error
+  Fix: Make sure .htaccess was uploaded. Some FTP clients
+       hide "dot files" — enable "Show hidden files" in FileZilla
+       (Server menu > Force showing hidden files).
 
 ================================================================
