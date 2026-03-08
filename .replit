@@ -1,4 +1,4 @@
-modules = ["web", "nodejs-20", "python-3.11"]
+modules = ["web", "nodejs-20", "python-3.11", "php-8.2"]
 [agent]
 expertMode = true
 integrations = ["github:1.0.0"]
@@ -27,7 +27,7 @@ outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python3 server.py"
+args = "php -S 0.0.0.0:5000 -t ."
 waitForPort = 5000
 
 [[ports]]
