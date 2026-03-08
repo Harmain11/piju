@@ -2,22 +2,21 @@
   PIJU COIN WEBSITE — HOSTINGER DEPLOYMENT GUIDE
 ================================================================
 
-STEP 1 — ADD YOUR API KEY (do this before uploading)
+STEP 1 — ADD YOUR API KEY (only 1 file to edit)
 ================================================================
 
   Open this file in any text editor:
 
-    api/chat.php
+    js/chatbot.js
 
-  Line 4 looks like this:
-    $ANTHROPIC_API_KEY = getenv('ANTHROPIC_API_KEY') ?: 'YOUR_API_KEY_HERE';
+  The very first line looks like this:
+    const ANTHROPIC_API_KEY = "YOUR_API_KEY_HERE";
 
-  Replace   YOUR_API_KEY_HERE   with your real Anthropic API key:
-    $ANTHROPIC_API_KEY = getenv('ANTHROPIC_API_KEY') ?: 'sk-ant-api03-...';
+  Replace   YOUR_API_KEY_HERE   with your real key:
+    const ANTHROPIC_API_KEY = "sk-ant-api03-...";
 
   Get your key at: https://console.anthropic.com
-
-  Save the file. That's the only edit needed.
+  Save the file.
 
 ================================================================
 STEP 2 — UPLOAD TO HOSTINGER public_html
@@ -28,11 +27,11 @@ STEP 2 — UPLOAD TO HOSTINGER public_html
     index.html
     .htaccess
     css/
-    js/
+    js/           <-- chatbot.js contains your API key
     assets/
-    api/              <-- contains only chat.php now
 
-  Make sure they land directly in public_html, not in a subfolder.
+  That's it. No api/ folder needed anymore.
+  No PHP. No server setup. Pure HTML + JavaScript.
 
 ================================================================
 STEP 3 — DONE
@@ -45,20 +44,21 @@ TROUBLESHOOTING
 ================================================================
 
   Bot says "API key not set..."
-    → You didn't replace YOUR_API_KEY_HERE in api/chat.php.
-      Re-open the file, add the key, re-upload api/chat.php.
+    → You didn't replace YOUR_API_KEY_HERE in js/chatbot.js.
+      Edit the file, add the key, re-upload js/chatbot.js.
 
-  Bot says "cURL is disabled..."
-    → In Hostinger hPanel go to: Hosting > Manage > PHP Configuration
-      Make sure "curl" extension is enabled. Save and try again.
+  Bot says "API error: invalid_api_key"
+    → The key you entered is wrong or has been revoked.
+      Go to console.anthropic.com, create a new key, update
+      js/chatbot.js line 3 and re-upload.
 
-  Bot says "Connection failed: ..."
-    → Paste the full error message in chat and we'll fix it.
+  Bot says "Network error..."
+    → Check your internet connection. Also make sure you
+      uploaded the correct js/chatbot.js (with your key).
 
-  Site shows a directory listing or 403 error
-    → Make sure .htaccess was uploaded. Some FTP clients hide
-      dot files — in FileZilla go to Server > Force showing
-      hidden files, then re-upload .htaccess.
+  Site shows directory listing or 403 error
+    → Make sure .htaccess was uploaded. In FileZilla go to
+      Server > Force showing hidden files, then re-upload.
 
   Images or video broken
     → Make sure you uploaded the full assets/ folder.
