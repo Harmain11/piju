@@ -2,38 +2,45 @@
 // PIJU Chatbot — Anthropic Claude API handler
 // Hostinger shared hosting compatible (PHP + cURL)
 
+// Suppress PHP notices/warnings — they must never corrupt JSON output
+error_reporting(0);
+ini_set('display_errors', '0');
+ob_start(); // capture any stray output so it never reaches the client
+
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
+function send_json($data, $status = 200) {
+    ob_end_clean();
+    http_response_code($status);
+    echo json_encode($data);
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    ob_end_clean();
     http_response_code(200);
     exit();
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    echo json_encode(['error' => 'Method not allowed']);
-    exit();
+    send_json(['error' => 'Method not allowed'], 405);
 }
 
 require_once __DIR__ . '/config.php';
 
 $apiKey = ANTHROPIC_API_KEY;
 if (!$apiKey || $apiKey === 'your-anthropic-api-key-here') {
-    http_response_code(500);
-    echo json_encode(['error' => 'ANTHROPIC_API_KEY not configured. Edit api/config.php']);
-    exit();
+    send_json(['error' => 'API key not configured. Edit api/config.php on Hostinger.'], 500);
 }
 
-$raw = file_get_contents('php://input');
+$raw  = file_get_contents('php://input');
 $data = json_decode($raw, true);
 
 if (!$data || empty($data['message'])) {
-    http_response_code(400);
-    echo json_encode(['error' => 'No message provided']);
-    exit();
+    send_json(['error' => 'No message provided'], 400);
 }
 
 $userMessage = trim($data['message']);
@@ -101,6 +108,10 @@ $payload = json_encode([
     'messages'   => $messages,
 ]);
 
+if (!function_exists('curl_init')) {
+    send_json(['error' => 'cURL is not enabled on this server. Enable it in Hostinger PHP settings.'], 500);
+}
+
 $ch = curl_init('https://api.anthropic.com/v1/messages');
 curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
@@ -112,26 +123,24 @@ curl_setopt_array($ch, [
         'anthropic-version: 2023-06-01',
     ],
     CURLOPT_TIMEOUT        => 30,
+    CURLOPT_SSL_VERIFYPEER => true,
 ]);
 
-$response = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$response  = curl_exec($ch);
+$httpCode  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $curlError = curl_error($ch);
 curl_close($ch);
 
 if ($curlError) {
-    http_response_code(502);
-    echo json_encode(['error' => 'cURL error: ' . $curlError]);
-    exit();
+    send_json(['error' => 'Connection failed: ' . $curlError], 502);
 }
 
 $result = json_decode($response, true);
 
 if ($httpCode !== 200) {
-    http_response_code(502);
-    echo json_encode(['error' => 'Anthropic API error', 'detail' => $result]);
-    exit();
+    $detail = isset($result['error']['message']) ? $result['error']['message'] : 'Unknown error';
+    send_json(['error' => 'Anthropic API error (HTTP ' . $httpCode . '): ' . $detail], 502);
 }
 
 $reply = $result['content'][0]['text'] ?? 'Something went wrong, try again!';
-echo json_encode(['reply' => $reply]);
+send_json(['reply' => $reply]);
