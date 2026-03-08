@@ -1,3 +1,9 @@
+// ============================================================
+//  PIJU CHATBOT — ADD YOUR ANTHROPIC API KEY HERE:
+const ANTHROPIC_API_KEY = "YOUR_API_KEY_HERE";
+//  Get your key at: https://console.anthropic.com
+// ============================================================
+
 (function () {
   const chatHistory = [];
 
@@ -470,6 +476,8 @@
       .trim();
   }
 
+  const SYSTEM_PROMPT = 'You are PIJU Bot, the official AI assistant for PIJU Coin — a community-driven Solana meme token. You are energetic, friendly, and deeply knowledgeable about everything on the PIJU website. Speak with excitement and positivity, using the PIJU community tone: bold, fun, and crypto-savvy. Keep answers concise and punchy.\n\nHere is everything you know about PIJU:\n\nWHAT IS PIJU?\nPIJU is a community-driven meme token built on the Solana blockchain. It is part of the Dark Pinoverse — a crypto universe that includes PINO and DARK PINO. PIJU is described as "DARKPINO\'s kindergarten brother" — representing the innocent beginning, the playful spirit, and the promise of growth. Slogan: "Grow Piju Together" and "Grow together. Rise together. PIJU is here to make history." PIJU is bold, chaotic, and fearless.\n\nTOKEN DETAILS\nTicker: $PIJU. Blockchain: Solana. Tax: 3% (to maximize holder gains). Token Launch: March 15. Status: COMING SOON — token has not launched yet. Token address (CA): Not yet revealed — "TOKEN LAUNCH SOON".\n\nTHE TEAM\nCreated by the same team behind PINO and DARK PINO. They have experience building Solana meme tokens. DARKPINO website: https://darkpino.xyz/\n\nWHERE TO TRADE $PIJU (once live)\nDexscreener, Dextools, Jupiter (Solana DEX aggregator), Gate.io.\n\nABOUT PIJU CHARACTER\nPIJU is a duck-like character wearing a bucket hat with "PIJU" on it. "Stay Chill" — While the world burns around him, PIJU stays relaxed. Diamond hands aren\'t just a meme — they\'re a lifestyle. "To The Moon" — Following in DARKPINO\'s footsteps, PIJU aims for the stars. Part of the Dark Pinoverse legacy.\n\nROADMAP (6 Phases)\nPhase 1 - Token Launch: Token Launch Event, Community Airdrop, DEX Listing, Liquidity Lock, CoinGecko and CMC Listings.\nPhase 2 - Community Growth: Ambassador Program, Meme Contests, Influencer Collabs, 10,000 Holders Milestone, Viral Marketing Campaigns.\nPhase 3 - NFT Drop: Limited Edition NFT Collection, NFT Holder Benefits, NFT Marketplace Integration, Community Art Submissions, Sustainable Token Flow.\nPhase 4 - PijuSwap: Development and Testing, Beta Optimization, PijuSwap Live — featuring Seamless Token Swaps, Fast Solana Transactions, Low Fees and Smooth UX.\nPhase 5 - Piju Launchpad: Platform Development, Testing and Refinement, Launchpad Live — for launching your own memecoins, Easy Token Creation, Creator-Friendly Tools.\nPhase 6 - Ecosystem Growth: Strategic Partnerships, Enhanced Burn Mechanics, Ecosystem Integrations, Expanded Community and Adoption.\n\nLONG-TERM VISION\nPijuCoin aims to evolve beyond a memecoin into a full Solana-powered ecosystem driven by utility, innovation, and community.\n\nCOMMUNITY / SOCIAL LINKS\nTikTok: @darkpinosolana — https://www.tiktok.com/@darkpinosolana\nTwitter/X: @Pijucoin — https://x.com/Pijucoin\nTelegram: https://t.me/+YMtd6vXpxy41Yjlh\nInstagram: @pijucoin — https://www.instagram.com/pijucoin\nDiscord: https://discord.gg/Dcuf8fCyE\n\nCONTACT / INVESTORS\nInvestor contact form is available on the website. Contact email: Samarisgeorge@gmail.com\n\nFORMATTING RULES (CRITICAL)\nNEVER use markdown formatting of any kind. Do NOT use asterisks, hashtags, bullet dashes, backticks, or numbered lists. Write in plain sentences and paragraphs only.';
+
   async function sendMessage(text) {
     if (!text.trim()) return;
 
@@ -485,31 +493,50 @@
     const typingRow = addTypingIndicator();
 
     try {
-      const res = await fetch("/api/chat.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, history: chatHistory.slice(0, -1) })
-      });
-
-      let data;
-      try { data = await res.json(); } catch(e) {
+      if (!ANTHROPIC_API_KEY || ANTHROPIC_API_KEY === "YOUR_API_KEY_HERE") {
         removeTypingIndicator();
-        addBotMessage("Server error (invalid response). Make sure api/config.php has your API key and re-upload to Hostinger.");
+        addBotMessage("API key not set. Open js/chatbot.js and replace YOUR_API_KEY_HERE with your Anthropic key.");
         return;
       }
+
+      const messages = chatHistory.slice(-20).map(m => ({ role: m.role, content: m.content }));
+
+      const res = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": ANTHROPIC_API_KEY,
+          "anthropic-version": "2023-06-01",
+          "anthropic-dangerous-direct-browser-access": "true"
+        },
+        body: JSON.stringify({
+          model: "claude-haiku-4-5",
+          max_tokens: 400,
+          system: SYSTEM_PROMPT,
+          messages: messages
+        })
+      });
+
       removeTypingIndicator();
 
-      if (data.reply) {
-        addBotMessage(data.reply);
-        chatHistory.push({ role: "assistant", content: data.reply });
-      } else if (data.error) {
-        addBotMessage("Error: " + data.error);
-      } else {
-        addBotMessage("Something went wrong on my end. Try again in a sec!");
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        const msg = err.error && err.error.message ? err.error.message : "HTTP " + res.status;
+        addBotMessage("API error: " + msg);
+        return;
       }
+
+      const data = await res.json();
+      const reply = data.content && data.content[0] && data.content[0].text
+        ? data.content[0].text
+        : "Something went wrong, try again!";
+
+      addBotMessage(reply);
+      chatHistory.push({ role: "assistant", content: reply });
+
     } catch (err) {
       removeTypingIndicator();
-      addBotMessage("Network error — couldn't reach the server. Check your Hostinger upload includes the api/ folder.");
+      addBotMessage("Network error — check your internet connection and try again.");
     } finally {
       sendBtn.disabled = false;
       inputEl.disabled = false;
