@@ -5,33 +5,27 @@ Official landing page for PIJU, a community-driven Solana meme token. Part of th
 
 ## Tech Stack
 - **Frontend**: Pure HTML5, Tailwind CSS (CDN), Vanilla JavaScript
-- **Backend**: Python Flask — serves static files and Claude chatbot API
-- **AI**: Anthropic Claude (claude-haiku-4-5) via ANTHROPIC_API_KEY secret
+- **Backend**: PHP 8.2 built-in server — serves static files and Claude chatbot API
+- **AI**: Anthropic Claude (claude-haiku-4-5) via ANTHROPIC_API_KEY
 
 ## Project Structure
-- `index.html` — Main landing page (~1715 lines)
-- `server.py` — Flask server: serves static files + `/api/chat` endpoint
+- `index.html` — Main landing page
 - `css/style.css` — Custom styles
-- `js/animations.js` — Animation logic
+- `js/animations.js` — Page animation logic
 - `js/chatbot.js` — PIJU chatbot chat bubble UI and logic
 - `assets/` — Images, videos, audio
+- `api/chat.php` — Chatbot API endpoint (PHP + cURL → Anthropic)
+- `api/config.php` — API key config (reads env var or hardcoded value)
+- `api/.htaccess` — Blocks public access to config.php
+- `.htaccess` — Apache routing for Hostinger
 
-## Running the Project
+## Running Locally (Replit)
 ```
-python3 server.py
+php -S 0.0.0.0:5000 -t .
 ```
-Runs on port 5000 (0.0.0.0).
-
-## Chatbot
-- Chat bubble appears in bottom-right corner using the PIJU mascot image
-- Powered by Claude (claude-haiku-4-5)
-- Knows all PIJU website content: token info, roadmap, team, social links, launch date
-- Matches website aesthetic: dark background, yellow/gold Orbitron font, glow effects
-- Quick suggestion buttons for common questions
-- Maintains conversation history within session
-
-## Environment Variables
-- `ANTHROPIC_API_KEY` — Required for Claude chatbot
+The ANTHROPIC_API_KEY secret is automatically passed as an environment
+variable, so api/config.php picks it up without any changes.
 
 ## Deployment
-Configured as autoscale deployment running `python3 server.py`.
+Hosted on Hostinger shared hosting. See DEPLOY.txt for full instructions.
+Add the API key in api/config.php before uploading.
