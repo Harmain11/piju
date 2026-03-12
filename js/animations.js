@@ -55,7 +55,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // SET DATE
 // Launch: 15 Maret 2026 00:00 Vancouver (Pacific Time)
-const launchDate = Date.parse("2026-03-15T07:00:00Z");
+const launchDate = Date.parse("2026-03-30T07:00:00Z");
 
 function getCanadaNow() {
   return new Date(
