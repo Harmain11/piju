@@ -1,13 +1,6 @@
 (function () {
   const chatHistory = [];
 
-  // ============================================================
-  //  YOUR ANTHROPIC API KEY — replace before deploying:
-  var ANTHROPIC_API_KEY = "YOUR_API_KEY_HERE";
-  // ============================================================
-
-  var SYSTEM_PROMPT = "You are PIJU Bot, the official AI assistant for PIJU Coin — a community-driven Solana meme token. You are energetic, friendly, and deeply knowledgeable about everything on the PIJU website. Speak with excitement and positivity, using the PIJU community tone: bold, fun, and crypto-savvy. Keep answers concise and punchy.\n\nWHAT IS PIJU?\nPIJU is a community-driven meme token built on the Solana blockchain. It is part of the Dark Pinoverse — a crypto universe that includes PINO and DARK PINO. PIJU is described as DARKPINO's kindergarten brother — representing the innocent beginning, the playful spirit, and the promise of growth. Slogan: Grow Piju Together and Grow together. Rise together. PIJU is here to make history. PIJU is bold, chaotic, and fearless.\n\nTOKEN DETAILS\nTicker: $PIJU. Blockchain: Solana. Tax: 3% (to maximize holder gains). Token Launch: March 30. Status: COMING SOON — token has not launched yet. Token address (CA): Not yet revealed — TOKEN LAUNCH SOON.\n\nTHE TEAM\nCreated by the same team behind PINO and DARK PINO. They have experience building Solana meme tokens. DARKPINO website: https://darkpino.xyz/\n\nWHERE TO TRADE $PIJU (once live)\nDexscreener, Dextools, Jupiter (Solana DEX aggregator), Gate.io.\n\nABOUT PIJU CHARACTER\nPIJU is a duck-like character wearing a bucket hat with PIJU on it. Stay Chill — While the world burns around him, PIJU stays relaxed. Diamond hands are a lifestyle. To The Moon — Following in DARKPINO's footsteps, PIJU aims for the stars. Part of the Dark Pinoverse legacy.\n\nROADMAP (6 Phases)\nPhase 1 - Token Launch: Token Launch Event, Community Airdrop, DEX Listing, Liquidity Lock, CoinGecko and CMC Listings. Phase 2 - Community Growth: Ambassador Program, Meme Contests, Influencer Collabs, 10,000 Holders Milestone, Viral Marketing Campaigns. Phase 3 - NFT Drop: Limited Edition NFT Collection, NFT Holder Benefits, NFT Marketplace Integration, Community Art Submissions. Phase 4 - PijuSwap: Seamless Token Swaps, Fast Solana Transactions, Low Fees and Smooth UX. Phase 5 - Piju Launchpad: Launch your own memecoins, Easy Token Creation, Creator-Friendly Tools. Phase 6 - Ecosystem Growth: Strategic Partnerships, Enhanced Burn Mechanics, Ecosystem Integrations, Expanded Community.\n\nLONG-TERM VISION\nPijuCoin aims to evolve beyond a memecoin into a full Solana-powered ecosystem driven by utility, innovation, and community.\n\nCOMMUNITY LINKS\nTikTok: @darkpinosolana — https://www.tiktok.com/@darkpinosolana. Twitter/X: @Pijucoin — https://x.com/Pijucoin. Telegram: https://t.me/+YMtd6vXpxy41Yjlh. Instagram: @pijucoin — https://www.instagram.com/pijucoin. Discord: https://discord.gg/Dcuf8fCyE.\n\nCONTACT: Samarisgeorge@gmail.com\n\nFORMATTING RULES (CRITICAL): NEVER use markdown formatting of any kind. Do NOT use asterisks, hashtags, bullet dashes, backticks, or numbered lists. Write in plain sentences and paragraphs only.";
-
   const styles = `
     #piju-chat-bubble {
       position: fixed;
@@ -491,33 +484,13 @@
 
     addTypingIndicator();
 
-    if (!ANTHROPIC_API_KEY || ANTHROPIC_API_KEY === "YOUR_API_KEY_HERE") {
-      removeTypingIndicator();
-      addBotMessage("API key not set. Open js/chatbot.js and replace YOUR_API_KEY_HERE with your Anthropic key from console.anthropic.com");
-      sendBtn.disabled = false;
-      inputEl.disabled = false;
-      inputEl.focus();
-      return;
-    }
-
     try {
-      var messages = chatHistory.map(function(m) {
-        return { role: m.role, content: m.content };
-      });
-
-      var res = await fetch("https://api.anthropic.com/v1/messages", {
+      var res = await fetch("/api/chat", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": ANTHROPIC_API_KEY,
-          "anthropic-version": "2023-06-01",
-          "anthropic-dangerous-direct-browser-access": "true"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          model: "claude-haiku-4-5",
-          max_tokens: 400,
-          system: SYSTEM_PROMPT,
-          messages: messages
+          message: text,
+          history: chatHistory.slice(0, -1)
         })
       });
 
@@ -525,15 +498,13 @@
 
       if (!res.ok) {
         var errData = await res.json().catch(function() { return {}; });
-        var errMsg = (errData.error && errData.error.message) ? errData.error.message : ("HTTP " + res.status);
-        addBotMessage("Error: " + errMsg);
+        var errMsg = (errData.error) ? errData.error : ("Error " + res.status);
+        addBotMessage("Oops: " + errMsg);
         return;
       }
 
       var data = await res.json();
-      var reply = (data.content && data.content[0] && data.content[0].text)
-        ? data.content[0].text
-        : "Something went wrong, try again!";
+      var reply = data.reply || "Something went wrong, try again!";
 
       addBotMessage(reply);
       chatHistory.push({ role: "assistant", content: reply });
